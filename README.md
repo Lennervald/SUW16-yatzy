@@ -1,5 +1,5 @@
 # Yatzy-game
->A correlation between students at Lernia SUW16
+>A collaboration between students at Lernia SUW16
 
 ## Installation
 Clone or download the source files.
