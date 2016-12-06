@@ -22,6 +22,7 @@
 
 
 
+
 12.Som produktägare vill jag tidigt få se en wireframe över hur den tänkta produkten ska se ut.
 
 13.Som produktägare vill jag att godkänd wireframes efterlevs i den grafiska designen.
