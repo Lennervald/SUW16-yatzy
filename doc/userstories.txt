@@ -1,4 +1,4 @@
-1.Som spelare vill jag kunna ange hur många deltagare (max 4 st) som ska vara med i spelet samt om det ska finnas en eller flera deltagare som är datorstyrda. 
+﻿1.Som spelare vill jag kunna ange hur många deltagare (max 4 st) som ska vara med i spelet samt om det ska finnas en eller flera deltagare som är datorstyrda. 
 
 2.Som spelare vill jag inledningsvis kunna ange mitt namn.
 
@@ -14,7 +14,7 @@
 
 7.Som spelare vill jag kunna se vems tur det är att kasta tärningarna genom att spelarens namn framgår på spelplanen.
 
-8.Som spelare vill jag kunna se de andras resultat av kastade tärningar samt hur de väljer att placera ut sina poäng på spelkortet.
+8.Som spelare vill jag kunna se de andras resultat av kastade tärningar samt hur de väljer att placera ut sina poäng på spelkortet..
 
 9.Som spelare vill jag hela tiden kunna överblicka samtliga deltagares resultat på spelkortet.
 
