@@ -27,7 +27,7 @@ Som produktägare vill jag tidigt få se en wireframe över hur den tänkta prod
 
 Som produktägare vill jag att godkänd wireframes efterlevs i den grafiska designen.
 
-Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design..
+Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design.
 
 
 
