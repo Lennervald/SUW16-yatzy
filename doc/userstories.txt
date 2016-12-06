@@ -1,33 +1,32 @@
-Som spelare vill jag kunna ange hur många deltagare (max 4 st) som ska vara med i spelet samt om det ska finnas en eller flera deltagare som är datorstyrda. 
+1.Som spelare vill jag kunna ange hur många deltagare (max 4 st) som ska vara med i spelet samt om det ska finnas en eller flera deltagare som är datorstyrda. 
 
-Som spelare vill jag inledningsvis kunna ange mitt namn för att på så sätt särskilja mig som delatagare.
+2.Som spelare vill jag inledningsvis kunna ange mitt namn för att på så sätt särskilja mig som delatagare.
 
-Som spelaren vill jag kunna klicka på en knapp för att generera att 5 st tärningar kastas för att generera ett resultat av kastade tärningar.
+3.Som spelaren vill jag kunna klicka på en knapp för att generera att 5 st tärningar kastas för att generera ett resultat av kastade tärningar.
 
-Som spelare vill jag, efter ett kast, kunna välja att placera ut resultatet på kortet, eller genomföra ett nytt kast. I samband med ett nytt kast 
-ska spelaren också kunna välja att spara en eller flera tärningar vars värde då bebehålls och tillförs det nya kastet.
+4.Som spelare vill jag, efter ett kast, kunna välja att placera ut resultatet på kortet, eller genomföra ett nytt kast. I samband med ett nytt kast ska spelaren också kunna välja att spara en eller flera tärningar vars värde då bebehålls och tillförs det nya kastet.
 
-Som spelare ska jag kunna genomföra totalt 3 st kast innan jag tvingas att placera ut det senast kastets resultat på spelkortet.
+5.Som spelare ska jag kunna genomföra totalt 3 st kast innan jag tvingas att placera ut det senast kastets resultat på spelkortet.
 
-Som spelare vill jag grafiskt bli presenterad vilka möjliga alternativ som finns att placera ut ett resultat på.
+6.Som spelare vill jag grafiskt bli presenterad vilka möjliga alternativ som finns att placera ut ett resultat på.
 
-Som spelare vill jag kunna se vems tur det är att kasta tärningarna genom att spelarens namn framgår på spelplanen.
+7.Som spelare vill jag kunna se vems tur det är att kasta tärningarna genom att spelarens namn framgår på spelplanen.
 
-Som spelare vill jag kunna se de andras resultat av kastade tärningar samt hur de väljer att placera ut sina poäng på spelkortet.
+8.Som spelare vill jag kunna se de andras resultat av kastade tärningar samt hur de väljer att placera ut sina poäng på spelkortet.
 
-Som spelare vill jag hela tiden kunna överblicka samtliga deltagares resultat på spelkortet.
+9.Som spelare vill jag hela tiden kunna överblicka samtliga deltagares resultat på spelkortet.
 
-Som spelare vill jag bli presenterad det slutgiltiga resultatet med samtliga deltagares placering.
+10.Som spelare vill jag bli presenterad det slutgiltiga resultatet med samtliga deltagares placering.
 
-Som spelare vill jag kunna påbörja ett nytt spel direkt efter att befintligt spel avslutats och även vid det här tillfället bestämma antal deltagare.
-
+11.Som spelare vill jag kunna påbörja ett nytt spel direkt efter att befintligt spel avslutats och även vid det här tillfället bestämma antal deltagare.
 
 
-Som produktägare vill jag tidigt få se en wireframe över hur den tänkta produkten ska se ut.
 
-Som produktägare vill jag att godkänd wireframes efterlevs i den grafiska designen.
+12.Som produktägare vill jag tidigt få se en wireframe över hur den tänkta produkten ska se ut.
 
-Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design.
+13.Som produktägare vill jag att godkänd wireframes efterlevs i den grafiska designen.
+
+14.Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design.
 
 
 
