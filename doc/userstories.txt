@@ -5,7 +5,9 @@ Som spelare vill jag inledningsvis kunna ange mitt namn för att på så sätt s
 Som spelaren vill jag kunna klicka på en knapp för att generera att 5 st tärningar kastas för att generera ett resultat av kastade tärningar.
 
 Som spelare vill jag, efter ett kast, kunna välja att placera ut resultatet på kortet, eller genomföra ett nytt kast. I samband med ett nytt kast 
-ska spelaren också kunna välja att spara en eller flera tärningar vars värde då bebehålls och tillförs det nya kastet.
+ska spelaren också kunna välja att låsa eller låsa upp en eller flera tärningar vars värde då bibehålls eller återställs.
+
+
 
 Som spelare ska jag kunna genomföra totalt 3 st kast innan jag tvingas att placera ut det senast kastets resultat på spelkortet.
 
