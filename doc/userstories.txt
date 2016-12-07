@@ -8,24 +8,25 @@
 
 5.Som spelare ska jag kunna genomföra totalt 3 st kast innan jag tvingas att placera ut det senast kastets resultat på spelkortet.
 
-
 6.Som spelare vill jag grafiskt bli presenterad vilka möjliga alternativ som finns att placera ut ett resultat på.
 
 7.Som spelare vill jag kunna se vems tur det är att kasta tärningarna genom att spelarens namn framgår på spelplanen.
 
-8.Som spelare vill jag kunna se de andras resultat av kastade tärningar samt hur de väljer att placera ut sina poäng på spelkortet..
+8. Som spelare vill jag kunna se de andras resultat av kastade tärningar samt hur de väljer att placera ut sina poäng på spelkortet..
+
+15. Som spelare vill jag att, när en bot genomför sitt spel, ska den grafiska presentationen av spelet efterlikna en mänsklig spelare. 
 
 9.Som spelare vill jag kunna starta ett spel och samtidigt bli presenterad ett blankt spelkort
 
-10.Som spelare vill jag bli presenterad det slutgiltiga resultatet med samtliga deltagares placering.
+10. Som spelare vill jag bli presenterad det slutgiltiga resultatet med samtliga deltagares placering.
 
-11.Som spelare vill jag kunna påbörja ett nytt spel direkt efter att befintligt spel avslutats och även vid det här tillfället bestämma antal deltagare.
+11. Som spelare vill jag kunna påbörja ett nytt spel direkt efter att befintligt spel avslutats och även vid det här tillfället bestämma antal deltagare.
 
-12.Som produktägare vill jag tidigt få se en wireframe över hur den tänkta produkten ska se ut.
+12. Som produktägare vill jag tidigt få se en wireframe över hur den tänkta produkten ska se ut.
 
-13.Som produktägare vill jag att godkänd wireframes efterlevs i den grafiska designen.
+13. Som produktägare vill jag att godkänd wireframes efterlevs i den grafiska designen.
 
-14.Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design.
+14. Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design.
 
 
 
