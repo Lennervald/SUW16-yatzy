@@ -7,6 +7,8 @@ var DICES_ARR = DICE_SET.dices;
 //DICE_SET.reset(); // reset all dices
 ////
 //DICES_ARR[0].lock(); // lock given dice
+//DICES_ARR[0].result; // get result of dice 0
+//DICES_ARR[0].closed;// get if locked for dice 0
 //
 //==============================================================================
 //==============================================================================
@@ -40,11 +42,11 @@ function DiceSet() {
             }
         }
     };
-    
+
     this.reset = function () {
         //
         for (var i = 0; i < this.dices.length; i++) {
-           this.dices[i].reset();
+            this.dices[i].reset();
         }
     };
 
