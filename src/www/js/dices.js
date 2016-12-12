@@ -21,6 +21,16 @@ function DiceSet() {
         return sum;
     };
 
+    this.toThrow = function () {
+        var toThrow = 0;
+        for (var i = 0; i < this.dices.length; i++) {
+            if (this.dices[i].locked === false) {
+                toThrow++;
+            }
+        }
+        return toThrow;
+    };
+
     this.throw = function () {
 
         if (this.throws === 3) {

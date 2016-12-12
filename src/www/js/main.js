@@ -41,19 +41,27 @@ function addEventThrowBtn() {
     });
 }
 
+var inProgress = false;
+
 function makeThrow(arr) {
     //
     DICE_SET.throw();
     //
     var i = 0;
+    var animationReady = 0;
     //
     if (DICE_SET.allLocked()) {
         alert("All locked");
         return;
     }
     //
+    if(inProgress){
+        console.log("return a");
+        return;
+    }
+    //
     $(".dice-img").each(function () {
-
+        inProgress = true;
         // All dices must be unlocked on the first throw
         if (DICE_SET.throws === 1) {
             $(this).removeClass("dice-locked");
@@ -64,7 +72,13 @@ function makeThrow(arr) {
                 $(this).attr("src", "images/dice_" + arr[i].result + ".png");
                 $(this).attr("alt", "dice_" + arr[i].result + ".png");
                 $(this).data("diceObj", arr[i]);
-                $(this).delay(400 * i).animate({opacity: 1}, 500);
+                $(this).delay(400 * i).animate({opacity: 1}, 500,function (){
+                    animationReady++;
+                    console.log("toThrow: "+DICE_SET.toThrow());
+                    if(animationReady === DICE_SET.toThrow()){
+                        inProgress = false;
+                    }
+                });
                 i++;
             });
         }
