@@ -1,16 +1,32 @@
 .gamecard {
-	// background-color: red;
-	// color: #000;
+	background-color: #FFF;
+	width: 100%;
+	padding: 0;
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 
-	.gamecard-header {
-		color:#222;
-		width:100px;
-	}
-	.gamecard-playername {
-		color:#666;
-		width:57px;
+
+	table, th, td {
+		padding: 3px 4px 3px 4px;
 	}
 
+    table, th {
+        border: 1px solid #444;
+    }
 
-	
+    td {
+        border: 1px dashed black;
+    }
+
+    .gamecard-shade {
+        background-color: #f2f2f2;
+    }
+
+    .gamecard-shade-darker {
+        background-color: #999;
+    }
+
+    .active-player {
+    	background-color: green;
+    	color: white;
+    }
 }

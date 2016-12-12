@@ -13,6 +13,7 @@ function go() {
  * @returns {undefined}
  */
 function TESTING() {
+    addWinnerPopupTemplate();
     includeHtml("templates/dices.html", "body");
 }
 
@@ -67,4 +68,57 @@ function makeThrow(arr) {
         }
     });
     //
+}
+
+function addWinnerPopupTemplate(){
+    includeHtml("templates/win-popup.html", "body");
+}
+
+
+function setCurrentPlayer(playerNo) {
+	// changes column bg color for active player
+
+	var ths = $('.gamecard th');
+	var tds = $('.gamecard td');
+	console.log(ths);
+	console.log(tds);
+
+	for (var i = 0; i < ths.length; i++) {
+		// console.log('i = ', i, ths[i]);
+		if ( i%5 == playerNo) {
+			$(ths[i]).addClass('active-player');
+		} else {
+			$(ths[i]).removeClass('active-player');
+		}
+	}
+	for (var i = 0; i < tds.length; i++) {
+		// console.log('i = ', i, tds[i]);
+		if ( i%5 == playerNo) {
+			$(tds[i]).addClass('active-player');
+		} else {
+			$(tds[i]).removeClass('active-player');
+		}
+	}
+	// var allCols = ths.concat(tds);
+	// console.log(allCols);
+
+}
+
+function showWinner(players) {
+
+	if (!players){
+
+		var dummyPlayersArr = [
+			{ name: 'Michael', score: 358 },
+			{ name: 'Nisse', score: 321 },
+			{ name: 'Olov', score: 255 },
+			{ name: 'Jonathan', score: 249 }
+		];
+
+		updatePlayersAndScore(dummyPlayersArr);
+	} else {
+		updatePlayersAndScore(players);
+	}
+
+    $('#win-popup').modal();
 }
