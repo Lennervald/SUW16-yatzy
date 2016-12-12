@@ -4,6 +4,7 @@ $(document).ready(function () {
 
 function go() {
     TESTING();
+    addWinnerPopupTemplate();
     addEventThrowBtn();
     addEventDice();
 }
@@ -13,7 +14,6 @@ function go() {
  * @returns {undefined}
  */
 function TESTING() {
-    addWinnerPopupTemplate();
     includeHtml("templates/dices.html", "body");
 }
 
