@@ -5,6 +5,8 @@ $(document).ready(function () {
 function go() {
     TESTING();
     addEventThrowBtn();
+
+    addWinnerPopupTemplate();
 }
 
 /**
@@ -43,6 +45,20 @@ function makeThrow(arr) {
     //
 }
 
-function showWinner() {
+function addWinnerPopupTemplate(){
     includeHtml("templates/win-popup.html", "body");
+}
+
+function showWinner() {
+
+	var dummyPlayersArr = [
+		{ name: 'Michael', score: 358 },
+		{ name: 'Nisse', score: 321 },
+		{ name: 'Olov', score: 255 },
+		{ name: 'Jonathan', score: 249 }
+	];
+
+	updatePlayersAndScore(dummyPlayersArr);
+
+    $('#win-popup').modal();
 }
