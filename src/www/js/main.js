@@ -42,3 +42,7 @@ function makeThrow(arr) {
     });
     //
 }
+
+function showWinner() {
+    includeHtml("templates/win-popup.html", "body");
+}
