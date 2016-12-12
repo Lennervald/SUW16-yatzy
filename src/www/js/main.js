@@ -14,7 +14,8 @@ function go() {
  * @returns {undefined}
  */
 function TESTING() {
-    includeHtml("templates/dices.html", "body");
+    includeHtml("templates/startpage.html", "body");
+//    includeHtml("templates/gamearea.html", "body");
 }
 
 function addEventDice() {

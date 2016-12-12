@@ -1,8 +1,10 @@
 $(document).ready(function(){
 	$(".start-game-button").click(function(){
-		$(".dices-container-main").show();
-		$(".gamecard").show();
-		$(this).hide();
+           $("#start-page").remove();
+            includeHtml("templates/gamearea.html","body");
+//		$(".dices-container-main").show();
+//		$(".gamecard").show();
+//		$(this).hide();
 	});
 
 });
