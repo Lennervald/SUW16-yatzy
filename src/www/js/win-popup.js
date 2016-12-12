@@ -1,10 +1,10 @@
 
-var dummyPlayersArr = [
-	{ name: 'Michael', score: 358 },
-	{ name: 'Nisse', score: 321 },
-	{ name: 'Olov', score: 255 },
-	{ name: 'Jonathan', score: 249 }
-];
+// var dummyPlayersArr = [
+// 	{ name: 'Michael', score: 358 },
+// 	{ name: 'Nisse', score: 321 },
+// 	{ name: 'Olov', score: 255 },
+// 	{ name: 'Jonathan', score: 249 }
+// ];
 
 function updatePlayersAndScore(playersArr) {
 
