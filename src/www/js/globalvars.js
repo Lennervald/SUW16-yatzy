@@ -1,4 +1,5 @@
 var players = [];
+var currentPlayerTurn = 1;
 var DICE_SET = new DiceSet();
 var DICES_ARR = DICE_SET.dices;
 var checkScore = {

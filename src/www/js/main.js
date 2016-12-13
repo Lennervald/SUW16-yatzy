@@ -11,9 +11,11 @@ function go() {
 function includeGameArea() {
     includeHtml("templates/gamearea.html", "body");
     addWinnerPopupTemplate();
+    addNewGameEventListener();
     addEventThrowBtn();
     addEventDice();
     gamecardSetup();
+    refreshActivePlayerColumn();
 }
 
 function includeStartPage() {
@@ -22,6 +24,13 @@ function includeStartPage() {
 
 function addWinnerPopupTemplate() {
     includeHtml("templates/win-popup.html", "body");
+}
+
+function addNewGameEventListener() {
+	$("body").on("click", ".new-game-button", function () {
+		DICE_SET.reset();
+		DICE_SET.removeLockedIcons();
+	});
 }
 
 function addEventDice() {
@@ -52,12 +61,6 @@ function toggleLockedIcon(diceElem, diceObj) {
     } else if (diceObj.locked) {
         diceObj.removeLockedIcon();
     }
-
-    $("body").on("click", ".new-game-button", function () {
-        DICE_SET.reset();
-        DICE_SET.removeLockedIcons();
-    });
-
 }
 
 function addEventThrowBtn() {
@@ -120,8 +123,19 @@ function makeThrow(arr) {
     });
 }
 
-function readyForNewRound() {
+function placePoint(td) {
+	// placePointsInColumn(td);
+	setNextPlayerTurn();
+}
+
+function setNextPlayerTurn() {
     $("#throwBtn").removeClass("btn-danger");
     $("#throwBtn").addClass("btn-success");
     DICE_SET.reset();
+
+    currentPlayerTurn++;
+    if (currentPlayerTurn > players.length) {
+    	currentPlayerTurn = 1;
+    }
+    refreshActivePlayerColumn();
 }
