@@ -12,6 +12,7 @@ function includeGameArea() {
     addWinnerPopupTemplate();
     addEventThrowBtn();
     addEventDice();
+    gamecardSetup();
 }
 
 function includeStartPage() {
