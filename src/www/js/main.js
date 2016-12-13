@@ -26,16 +26,14 @@ function addWinnerPopupTemplate() {
 
 function addEventDice() {
     $(".dice-img").click(function () {
-
         var diceObj = $(this).data("diceObj");
 
-        //Locking must only work when ammount of throws <= 2
-        if (DICE_SET.throws <= 2) {
+        // Locking only works after first and before last throw
+        if (DICE_SET.throws > 0 && DICE_SET.throws < 3) {
             $(this).toggleClass("dice-locked");
             toggleLockedIcon($(this), diceObj);
             diceObj.toggleLock();
         }
-        console.log("" + diceObj.toString());
     });
 }
 
