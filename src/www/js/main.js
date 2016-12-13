@@ -1,15 +1,10 @@
 $(document).ready(function () {
-   go();
+    go();
 });
 
 
-/**
- * Temporary function for testing only
- * @returns {undefined}
- */
 function go() {
-    includeHtml("templates/startpage.html", "body");
-//    includeHtml("templates/gamearea.html", "body");
+    includeStartPage();
 }
 
 function includeGameArea() {
@@ -17,6 +12,14 @@ function includeGameArea() {
     addWinnerPopupTemplate();
     addEventThrowBtn();
     addEventDice();
+}
+
+function includeStartPage() {
+    includeHtml("templates/startpage.html", "body");
+}
+
+function addWinnerPopupTemplate() {
+    includeHtml("templates/win-popup.html", "body");
 }
 
 function addEventDice() {
@@ -45,20 +48,28 @@ var inProgress = false;
 
 function makeThrow(arr) {
     //
-    DICE_SET.throw();
-    //
-    var i = 0;
-    var animationReady = 0;
+    if (inProgress) {
+        return;
+    }
     //
     if (DICE_SET.allLocked()) {
         alert("All locked");
         return;
     }
     //
-    if(inProgress){
-        console.log("return a");
+    if (DICE_SET.waitForScore) {
         return;
     }
+    //
+    DICE_SET.throw();
+    //
+    if (DICE_SET.waitForScore) {
+        $("#throwBtn").removeClass("btn-success");
+        $("#throwBtn").addClass("btn-danger");
+    }
+    //
+    var i = 0;
+    var animationReady = 0;
     //
     $(".dice-img").each(function () {
         inProgress = true;
@@ -66,16 +77,15 @@ function makeThrow(arr) {
         if (DICE_SET.throws === 1) {
             $(this).removeClass("dice-locked");
         }
-
+        //
         if ($(this).hasClass("dice-locked") === false) {
             $(this).animate({opacity: 0}, 200, function () {
                 $(this).attr("src", "images/dice_" + arr[i].result + ".png");
                 $(this).attr("alt", "dice_" + arr[i].result + ".png");
                 $(this).data("diceObj", arr[i]);
-                $(this).delay(400 * i).animate({opacity: 1}, 500,function (){
+                $(this).delay(400 * i).animate({opacity: 1}, 500, function () {
                     animationReady++;
-                    console.log("toThrow: "+DICE_SET.toThrow());
-                    if(animationReady === DICE_SET.toThrow()){
+                    if (animationReady === DICE_SET.toThrow()) {
                         inProgress = false;
                     }
                 });
@@ -86,9 +96,12 @@ function makeThrow(arr) {
     //
 }
 
-function addWinnerPopupTemplate() {
-    includeHtml("templates/win-popup.html", "body");
+function readyForNewRound() {
+    $("#throwBtn").removeClass("btn-danger");
+    $("#throwBtn").addClass("btn-success");
+    DICE_SET.reset();
 }
+
 
 
 function setCurrentPlayer(playerNo) {
@@ -116,7 +129,7 @@ function setCurrentPlayer(playerNo) {
         }
     }
     // var allCols = ths.concat(tds);
-     console.log(allCols);
+    console.log(allCols);
 
 }
 
