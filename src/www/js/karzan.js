@@ -1,19 +1,22 @@
-var players = [];	
+var players = [];
 
-$(document).ready(function() {
+function showAddPlayerForm() {
 
 	addPlayer();
 	addPlayer();
-
-	$('.addPlayer').on('click', function () {
-		addPlayer();
-	});
 
 	$('.player-list').on('change', 'input', function () {
 		var id = $(this).attr('player-id');
 		var name = $(this).val();
 
 		players[id] = name;
+	});
+}
+
+$(function(){
+	showAddPlayerForm();
+	$('body').on('click', '.addPlayer', function () {
+		addPlayer();
 	});
 });
 
@@ -22,11 +25,11 @@ function addPlayer() {
 		var playerName = 'player ' + (players.length+1);
 
 		$('.player-list').append(
-			'<div class="col-xs-8">' +
+			'<div class="col-xs-10">' +
 				'<input player-id="' + players.length + '" value="' + playerName + '"></input>' +
 			'</div>' +
 		  	'<div class="col-xs-2">' +
-		  		'<button class="glyphicon glyphicon-remove-circle"></button>' +
+		  		'<button class="glyphicon glyphicon-envelope"></button>' +
 		  	'</div>'
 		);
 
