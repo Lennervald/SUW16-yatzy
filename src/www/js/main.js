@@ -116,7 +116,7 @@ function setCurrentPlayer(playerNo) {
         }
     }
     // var allCols = ths.concat(tds);
-    // console.log(allCols);
+     console.log(allCols);
 
 }
 

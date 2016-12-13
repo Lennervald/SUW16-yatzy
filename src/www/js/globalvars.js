@@ -1,3 +1,4 @@
+var players = [];
 var DICE_SET = new DiceSet();
 var DICES_ARR = DICE_SET.dices;
 var checkScore = {
