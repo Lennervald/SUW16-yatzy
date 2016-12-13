@@ -18,20 +18,3 @@ function includeHtml(url, selector, addType) {
         $(selector).append(html);
     }
 }
-
-/**
- * To convert the rcieved html string into jquery object use: var obj = $.parseHTML(responseText)
- * @param {type} url
- * @returns {jqXHR.responseText}
- */
-function loadTemplate(url) {
-    //
-    var html = $.ajax({
-        url: url,
-        type: "GET",
-        dataType: 'html',
-        async: false
-    }).responseText;
-    //
-    return html;
-}

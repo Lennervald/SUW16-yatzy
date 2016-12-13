@@ -1,5 +1,31 @@
+var players = [];
 var DICE_SET = new DiceSet();
 var DICES_ARR = DICE_SET.dices;
+var checkScore = {
+	One: null,
+	Two: null,
+	Three: null,
+	Four: null,
+	Five: null,
+	Six: null,
+
+	Sum: null,
+	Bonus: null,
+
+	Pair: null,
+	TwoPair: null,
+	Threesome: null,
+	Foursome: null,
+
+	SmallStraight: null,
+	LargeStraight: null,
+
+	FullHouse: null,
+	Chance: null,
+	Yahtzee: null,
+};
+
+// The checkScore functions will return either 0 or x (where x = the score counted for that option)
 
 /*
 	DICE_SET.throw(); // throw 5 dices
