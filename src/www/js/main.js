@@ -30,10 +30,28 @@ function addEventDice() {
         //Locking must only work when ammount of throws <= 2
         if (DICE_SET.throws <= 2) {
             $(this).toggleClass("dice-locked");
+            toggleLockedIcon($(this), diceObj);
             diceObj.toggleLock();
         }
         console.log("" + diceObj.toString());
     });
+}
+
+function toggleLockedIcon(diceElem, diceObj) {
+    if (diceObj.locked === false) {
+        var offset = $(diceElem).offset();
+        var width = $(diceElem).outerWidth(true);
+        //
+        var icon = $.parseHTML("<img src='images/locked.png' alt='locked'>");
+        $(icon).css("position", "absolute");
+        $(icon).css("top", offset.top + "px");
+        $(icon).css("left", (offset.left + width) + "px");
+        $("body").append(icon).show('slow');
+        //
+        diceObj.setLockedIcon(icon);
+    }else{
+        diceObj.removeLockedIcon();
+    }
 }
 
 function addEventThrowBtn() {

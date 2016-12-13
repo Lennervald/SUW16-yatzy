@@ -89,6 +89,15 @@ function Dice(nr) {
     this.nr = nr;
     this.result = 0;
     this.locked = false;
+    this.lockedIcon;
+
+    this.setLockedIcon = function (lockedIcon) {
+       this.lockedIcon = lockedIcon;
+    };
+    
+     this.removeLockedIcon = function () {
+       $(this.lockedIcon).remove();
+    };
 
     this.throw = function () {
         this.result = Math.ceil(Math.random() * 6);
