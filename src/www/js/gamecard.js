@@ -17,7 +17,7 @@ function gamecardSetup() {
 		'Kåk',
 		'Chans',
 		'Yatzy',
-		'Summa'
+		'Totalt'
 	];
 
 	var shadedRulesRowIndices = [
@@ -40,7 +40,7 @@ function gamecardSetup() {
 			for(var playerIndex = 0; playerIndex < players.length; playerIndex++){
 				tr.append('<td>0</td>');
 			}
-			
+
 			$('.gamecard tbody').append(tr);
 		}
 	}
@@ -62,7 +62,7 @@ function gamecardSetup() {
 		tr.append('<td>Deltagare</td>');
 
 		for(var playerIndex = 0; playerIndex < players.length; playerIndex++){
-				
+
 			tr.append(
 				'<td>' + shortenedPlayerName(playerIndex) + '</td>'
 			);
@@ -73,7 +73,7 @@ function gamecardSetup() {
 
 	function shortenedPlayerName(playerIndex) {
 		var playerName = players[playerIndex];
-		
+
 		playerName = playerName[0] + playerName[1] + playerName[playerName.length-1];
 
 		return playerName.toUpperCase();

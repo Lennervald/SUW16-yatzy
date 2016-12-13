@@ -5,27 +5,31 @@
 	box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 
 
-	table, th, td {
+	table, td {
 		padding: 3px 4px 3px 4px;
 	}
 
-    table, th {
-        border: 1px solid #444;
-    }
+	tr:first-child {
+		font-weight: 700;
+	}
 
-    td {
-        border: 1px dashed black;
-    }
+	td {
+		border: 1px solid black;
+		&:first-child {
+			font-weight: 700;
+		}
+	}
 
-    .gamecard-shade {
-        background-color: #f2f2f2;
-    }
+	.gamecard-shade {
+		background-color: #f2f2f2;
+	}
 
-    .gamecard-shade-darker {
-        background-color: #999;
-    }
+	.gamecard-shade-darker {
+		background-color: #999;
+	}
 
-    .active-player {
-    	background-color: green;
-    	color: white;
-    }
+	.active-player {
+		background-color: green;
+		color: white;
+	}
+}
