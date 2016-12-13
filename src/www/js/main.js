@@ -3,6 +3,7 @@ $(document).ready(function () {
 });
 
 
+
 function go() {
     includeStartPage();
 }
@@ -50,9 +51,15 @@ function toggleLockedIcon(diceElem, diceObj) {
         $("body").append(icon).show('slow');
         //
         diceObj.setLockedIcon(icon);
-    }else{
+    } else if (diceObj.locked) {
         diceObj.removeLockedIcon();
     }
+
+    $("body").on("click", ".new-game-button", function () {
+        DICE_SET.reset();
+        DICE_SET.removeLockedIcons();
+    });
+
 }
 
 function addEventThrowBtn() {
@@ -110,6 +117,8 @@ function makeThrow(arr) {
                 });
                 i++;
             });
+        } else {
+            i++;
         }
     });
     //
