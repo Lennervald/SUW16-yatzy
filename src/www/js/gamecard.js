@@ -74,7 +74,9 @@ function gamecardSetup() {
 	function shortenedPlayerName(playerIndex) {
 		var playerName = players[playerIndex];
 
-		playerName = playerName[0] + playerName[1] + playerName[playerName.length-1];
+		if (playerName.length > 3) {
+			playerName = playerName[0] + playerName[1] + playerName[playerName.length-1];
+		}
 
 		return playerName.toUpperCase();
 	}
