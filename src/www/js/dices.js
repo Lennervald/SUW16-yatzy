@@ -1,6 +1,7 @@
 function DiceSet() {
     this.dices = [];
     this.throws = 0;
+    this.waitForScore = false;
 
     this.createDices = function () {
         for (var i = 0; i < 5; i++) {
@@ -33,16 +34,17 @@ function DiceSet() {
 
     this.throw = function () {
 
-        if (this.throws === 3) {
-            this.reset();
-        }
-
         for (var i = 0; i < this.dices.length; i++) {
             if (this.dices[i].locked === false) {
                 this.dices[i].throw();
             }
         }
         this.throws++;
+
+        if (this.throws === 3) {
+            this.waitForScore = true;
+        }
+
     };
 
     this.allLocked = function () {
@@ -62,6 +64,7 @@ function DiceSet() {
     };
 
     this.reset = function () {
+        this.waitForScore = false;
         for (var i = 0; i < this.dices.length; i++) {
             this.dices[i].reset();
         }
@@ -74,34 +77,10 @@ function DiceSet() {
         }
     };
 
-    this.isRuleOneToSix = function (oneToSix) {
-        for (var i = 0; i < this.dices.length; i++) {
-            if (this.dices[i].result !== oneToSix) {
-                return false;
-            }
-        }
-        return true;
-    };
-
-    this.isRuleYatzy = function () {
-        var firstVal;
-
-        for (var i = 0; i < this.dices.length; i++) {
-            if (i === 0) {
-                firstVal = this.dices[i].result;
-            } else {
-                if (this.dices[i].result !== firstVal) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    };
 
     this.toString = function () {
-        return "throws: " + this.throws
-                + "\n isRuleOnes: " + this.isRuleOneToSix(1)
-                + "\n isRuleYatzy: " + this.isRuleYatzy();
+        return "throws: " + this.throws +
+                "\nwaitForScore: " + this.waitForScore;
     };
 
 }

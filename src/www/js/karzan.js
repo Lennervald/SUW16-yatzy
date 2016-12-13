@@ -22,11 +22,11 @@ function addPlayer() {
 		var playerName = 'player ' + (players.length+1);
 
 		$('.player-list').append(
-			'<div class="col-xs-10">' +
+			'<div class="col-xs-8">' +
 				'<input player-id="' + players.length + '" value="' + playerName + '"></input>' +
 			'</div>' +
 		  	'<div class="col-xs-2">' +
-		  		'<button class="glyphicon glyphicon-remove-circle delete-button"></button>' +
+		  		'<button class="glyphicon glyphicon-remove-circle"></button>' +
 		  	'</div>'
 		);
 
