@@ -14,8 +14,8 @@ function includeGameArea() {
     addEventDice();
 }
 
-function includeStartPage(){
-    includeHtml("templates/startpage.html","body");
+function includeStartPage() {
+    includeHtml("templates/startpage.html", "body");
 }
 
 function addWinnerPopupTemplate() {
@@ -57,7 +57,16 @@ function makeThrow(arr) {
         return;
     }
     //
+    if (DICE_SET.waitForScore) {
+        return;
+    }
+    //
     DICE_SET.throw();
+    //
+    if (DICE_SET.waitForScore) {
+        $("#throwBtn").removeClass("btn-success");
+        $("#throwBtn").addClass("btn-danger");
+    }
     //
     var i = 0;
     var animationReady = 0;
@@ -87,6 +96,11 @@ function makeThrow(arr) {
     //
 }
 
+function readyForNewRound() {
+    $("#throwBtn").removeClass("btn-danger");
+    $("#throwBtn").addClass("btn-success");
+    DICE_SET.reset();
+}
 
 
 
@@ -115,7 +129,7 @@ function setCurrentPlayer(playerNo) {
         }
     }
     // var allCols = ths.concat(tds);
-     console.log(allCols);
+    console.log(allCols);
 
 }
 
