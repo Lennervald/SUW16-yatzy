@@ -62,6 +62,12 @@ function DiceSet() {
         }
 
     };
+    
+    this.removeLockedIcons = function () {
+        for (var i = 0; i < this.dices.length; i++) {
+            this.dices[i].removeLockedIcon();
+        }
+    };
 
     this.reset = function () {
         this.waitForScore = false;
