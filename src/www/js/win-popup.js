@@ -1,10 +1,21 @@
+function showWinner(playersArr) {
 
-// var dummyPlayersArr = [
-// 	{ name: 'Michael', score: 358 },
-// 	{ name: 'Nisse', score: 321 },
-// 	{ name: 'Olov', score: 255 },
-// 	{ name: 'Jonathan', score: 249 }
-// ];
+    if (!playersArr) {
+
+        var dummyPlayersArr = [
+            {name: 'Michael', score: 358},
+            {name: 'Nisse', score: 321},
+            {name: 'Olov', score: 255},
+            {name: 'Jonathan', score: 249}
+        ];
+
+        updatePlayersAndScore(dummyPlayersArr);
+    } else {
+        updatePlayersAndScore(playersArr);
+    }
+
+    $('#win-popup').modal();
+}
 
 function updatePlayersAndScore(playersArr) {
 
@@ -18,3 +29,18 @@ function updatePlayersAndScore(playersArr) {
 	}
 }
 
+// changes column bg color for active player
+function setCurrentPlayer(playerNo) {
+
+    var tds = $('.gamecard td');
+    // console.log(tds);
+
+    for (var i = 0; i < tds.length; i++) {
+        // console.log('i = ', i, tds[i]);
+        if (i % (players.length + 1) == playerNo) {
+            $(tds[i]).addClass('active-player');
+        } else {
+            $(tds[i]).removeClass('active-player');
+        }
+    }
+}
