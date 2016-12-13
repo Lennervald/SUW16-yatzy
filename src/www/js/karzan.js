@@ -1,19 +1,22 @@
-var players = [];	
+var players = [];
 
-$(document).ready(function() {
+function showAddPlayerForm() {
 
 	addPlayer();
 	addPlayer();
-
-	$('.addPlayer').on('click', function () {
-		addPlayer();
-	});
 
 	$('.player-list').on('change', 'input', function () {
 		var id = $(this).attr('player-id');
 		var name = $(this).val();
 
 		players[id] = name;
+	});
+}
+
+$(function(){
+	showAddPlayerForm();
+	$('body').on('click', '.addPlayer', function () {
+		addPlayer();
 	});
 });
 
