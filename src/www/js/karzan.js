@@ -15,7 +15,7 @@ function showAddPlayerForm() {
 
 $(function(){
 	showAddPlayerForm();
-	$('body').on('click', '.addPlayer', function () {
+	$('body').on('click', '.addPincllayer', function () {
 		addPlayer();
 	});
 });
@@ -28,9 +28,9 @@ function addPlayer() {
 			'<div class="col-xs-10">' +
 				'<input player-id="' + players.length + '" value="' + playerName + '"></input>' +
 			'</div>' +
-		  	'<div class="col-xs-2">' +
-		  		'<button class="glyphicon glyphicon-envelope"></button>' +
-		  	'</div>'
+			'<div class="col-xs-2">' +
+				'<button class="glyphicon glyphicon-envelope"></button>' +
+			'</div>'
 		);
 
 
