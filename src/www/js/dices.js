@@ -62,7 +62,7 @@ function DiceSet() {
         }
 
     };
-    
+
     this.removeLockedIcons = function () {
         for (var i = 0; i < this.dices.length; i++) {
             this.dices[i].removeLockedIcon();
@@ -70,7 +70,6 @@ function DiceSet() {
     };
 
     this.reset = function () {
-        this.waitForScore = false;
         for (var i = 0; i < this.dices.length; i++) {
             this.dices[i].reset();
         }
@@ -100,7 +99,7 @@ function Dice(nr) {
     this.setLockedIcon = function (lockedIcon) {
        this.lockedIcon = lockedIcon;
     };
-    
+
      this.removeLockedIcon = function () {
        $(this.lockedIcon).remove();
     };

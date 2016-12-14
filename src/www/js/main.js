@@ -49,14 +49,7 @@ function addEventDice() {
 
 function toggleLockedIcon(diceElem, diceObj) {
     if (diceObj.locked === false) {
-        var offset = $(diceElem).offset();
-        var width = $(diceElem).outerWidth(true);
-
-        var icon = '<img class="dice-lock" src="images/locked.png" alt="locked">';
-        //$(icon).css("position", "absolute");
-        //$(icon).css("top", offset.top + "px");
-        //$(icon).css("left", (offset.left + width) + "px");
-        //diceElem.append(icon).show('slow');
+        var icon = $('<img class="dice-lock" src="images/locked.png" alt="locked">');
         diceElem.closest('div').append(icon);
 
         diceObj.setLockedIcon(icon);
@@ -139,7 +132,9 @@ function setNextPlayerTurn() {
     $("#throwBtn").addClass("btn-success");
 
     $(".dice-img").removeClass("dice-locked").attr('src', '');
+    $(".dice-lock").remove();
     DICE_SET.reset();
+	DICE_SET.removeLockedIcons();
 
     currentPlayerTurn++;
     if (currentPlayerTurn > players.length) {

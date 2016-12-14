@@ -8,6 +8,7 @@
 
 	checkScore.Sum = function() { return arraySum(DICES_ARR); }
 	checkScore.Bonus = function() { return (checkScore.Sum() >= 63) ? 50 : 0; }
+	// BROKEN SHIT, should NOT depend on the results of current dices
 
 	checkScore.Pair = function() { return multiples(2); }
 	checkScore.TwoPair = function() { return twoPair(); }
