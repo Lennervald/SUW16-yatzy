@@ -138,4 +138,23 @@ function setNextPlayerTurn() {
     	currentPlayerTurn = 1;
     }
     refreshActivePlayerColumn();
+    setHighlightScore();
+}
+
+function setHighlightScore() {
+
+    /* Marker for each users latest score round */
+    unHighlightScore();
+    
+    // PS. Replace placesScore when Martins - "AddScore" is ready
+
+    var placedScore = $("td");
+    var highlight = placedScore.addClass("highlightScore");
+
+}
+
+function unHighlightScore() {
+
+    $('td').removeClass("highlightScore");
+
 }
