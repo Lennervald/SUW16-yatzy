@@ -1,3 +1,4 @@
+
 function showAddPlayerForm() {
 
 	addPlayer();
@@ -24,16 +25,15 @@ function addPlayer() {
 			'<div class="player-input-holder">' +
 				'<div class="col-xs-8">' +
 					'<input value="' + playerName + '"></input>' +
-				'</div>' +
-
+				'</div>' + 
 				'<div class="col-xs-2">' +
 					'<button class="glyphicon glyphicon-remove-circle deletePlayer"></button>' +
 				'</div>' +
 			'</div>'
-
 		);
 
 		players.push(playerName);
+		hideAddPlayerButton();
 	}
 }
 
@@ -44,6 +44,7 @@ function removePlayer(){
 
 	holder.remove();
 	players.splice(index,1);
+	hideAddPlayerButton();
 }
 
 function changePlayerName(){
@@ -60,4 +61,14 @@ function validatePlayerNames(){
 			players[index] = 'Player ' + (index + 1);
 		}
 	});
+}
+
+function hideAddPlayerButton() {
+	if (players.length >= 4) {
+		//$('.addPlayer').hide();
+		$('.addPlayer').prop('disabled', true);
+	} else {
+		//$('.addPlayer').show();
+		$('.addPlayer').prop('disabled', false);
+	}
 }
