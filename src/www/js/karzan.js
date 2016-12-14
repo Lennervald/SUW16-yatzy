@@ -25,13 +25,11 @@ function addPlayer() {
 			'<div class="player-input-holder">' +
 				'<div class="col-xs-8">' +
 					'<input value="' + playerName + '"></input>' +
-				'</div>' +
-
+				'</div>' + 
 				'<div class="col-xs-2">' +
 					'<button class="glyphicon glyphicon-remove-circle deletePlayer"></button>' +
 				'</div>' +
 			'</div>'
-
 		);
 
 		players.push(playerName);
@@ -67,8 +65,10 @@ function validatePlayerNames(){
 
 function hideAddPlayerButton() {
 	if (players.length >= 4) {
-		$('.addPlayer').hide();
+		//$('.addPlayer').hide();
+		$('.addPlayer').prop('disabled', true);
 	} else {
-		$('.addPlayer').show();
+		//$('.addPlayer').show();
+		$('.addPlayer').prop('disabled', false);
 	}
 }
