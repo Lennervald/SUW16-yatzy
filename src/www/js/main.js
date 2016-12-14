@@ -146,21 +146,25 @@ function setNextPlayerTurn() {
     }
 
     refreshActivePlayerColumn();
-    setHighlightScore();
+    
 }
 
-function setHighlightScore() {
+function setHighlightScore(td) {
 
-    /* Marker for each users latest score round */
     unHighlightScore();
 
-    // PS. Replace placesScore when Martins - "AddScore" is ready
+    /* Marker for each users latest score round */
 
-    var placedScore = $("td");
-    var highlight = placedScore.addClass("highlightScore");
+    $(td).addClass("highlightScore");
 
 }
 
 function unHighlightScore() {
+
+    /* Marker for each users latest score round */
+
     $('td').removeClass("highlightScore");
+    
+
 }
+
