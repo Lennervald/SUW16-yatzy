@@ -14,6 +14,8 @@ $(function(){
 	$('body').on('click', '.addPlayer', addPlayer);
 
 	$('body').on('click', '.deletePlayer', removePlayer);
+
+	$('body').on('click', '.toggleBotPlayer', swapPlayer);
 });
 
 function addPlayer() {
@@ -25,7 +27,11 @@ function addPlayer() {
 			'<div class="player-input-holder">' +
 				'<div class="col-xs-8">' +
 					'<input value="' + playerName + '"></input>' +
-				'</div>' + 
+				'</div>' +
+				'<div class="col-xs-2">' +
+					'<button class="glyphicon glyphicon-user toggleBotPlayer"></button>'
+					 +
+				'</div>' +
 				'<div class="col-xs-2">' +
 					'<button class="glyphicon glyphicon-remove-circle deletePlayer"></button>' +
 				'</div>' +
@@ -72,3 +78,8 @@ function hideAddPlayerButton() {
 		$('.addPlayer').prop('disabled', false);
 	}
 }
+
+function swapPlayer() {
+	$(this).toggleClass('glyphicon-knight').toggleClass('glyphicon-user');
+}
+

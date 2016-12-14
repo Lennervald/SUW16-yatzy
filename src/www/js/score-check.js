@@ -19,7 +19,7 @@
 
 	checkScore.FullHouse = function() { return fullHouse(); }
 	checkScore.Chance = function() { return arraySum(DICES_ARR); }
-	checkScore.Yahtzee = function() { return multiples(5); }
+	checkScore.Yahtzee = function() { return multiples(5) ? 50 : 0; }
 
 
 	function sumDigit(aDigit) {

@@ -52,11 +52,12 @@ function toggleLockedIcon(diceElem, diceObj) {
         var offset = $(diceElem).offset();
         var width = $(diceElem).outerWidth(true);
 
-        var icon = $.parseHTML("<img src='images/locked.png' alt='locked'>");
-        $(icon).css("position", "absolute");
-        $(icon).css("top", offset.top + "px");
-        $(icon).css("left", (offset.left + width) + "px");
-        $("body").append(icon).show('slow');
+        var icon = '<img class="dice-lock" src="images/locked.png" alt="locked">';
+        //$(icon).css("position", "absolute");
+        //$(icon).css("top", offset.top + "px");
+        //$(icon).css("left", (offset.left + width) + "px");
+        //diceElem.append(icon).show('slow');
+        diceElem.closest('div').append(icon);
 
         diceObj.setLockedIcon(icon);
     } else if (diceObj.locked) {
