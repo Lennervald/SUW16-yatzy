@@ -12,7 +12,7 @@ function includeGameArea() {
     includeHtml("templates/gamearea.html", "body");
     addWinnerPopupTemplate();
     addNewGameEventListener();
-    addEventThrowBtn();
+    $("#throwBtn").click(makeThrow);
     addEventDice();
     gamecardSetup();
     refreshActivePlayerColumn();
@@ -64,16 +64,9 @@ function toggleLockedIcon(diceElem, diceObj) {
     }
 }
 
-function addEventThrowBtn() {
-    $("#throwBtn").click(function (event) {
-        event.preventDefault();
-        makeThrow(DICES_ARR);
-    });
-}
-
 var inProgress = false;
 
-function makeThrow(arr) {
+function makeThrow() {
     if (inProgress) {
         return;
     }
@@ -97,30 +90,19 @@ function makeThrow(arr) {
     var i = 0;
     var animationReady = 0;
 
-    $(".dice-img").each(function () {
+    $(".dice-img").each(function(i) {
         inProgress = true;
-
-        // All dices must be unlocked on the first throw
-        if (DICE_SET.throws === 1) {
-            $(this).removeClass("dice-locked");
-        }
 
         if ($(this).hasClass("dice-locked") === false) {
             $(this).animate({opacity: 0}, 200, function () {
-                $(this).attr("src", "images/dice_" + arr[i].result + ".png");
-                $(this).attr("alt", "dice_" + arr[i].result + ".png");
-                $(this).data("diceObj", arr[i]);
-                $(this).delay(400 * i).animate({opacity: 1}, 500, function () {
-                    animationReady++;
-                    if (animationReady === DICE_SET.toThrow()) {
-                        inProgress = false;
-                        checkAvailableScoreOptions();
-                    }
+                $(this).attr("src", "images/dice_" + DICES_ARR[i].result + ".png");
+                $(this).attr("alt", "dice_" + DICES_ARR[i].result + ".png");
+                $(this).data("diceObj", DICES_ARR[i]);
+                $(this).delay(200).animate({opacity: 1}, 500, function () {
+                    inProgress = false;
+                    checkAvailableScoreOptions();
                 });
-                i++;
             });
-        } else {
-            i++;
         }
     });
 }
@@ -158,12 +140,15 @@ function placePoint() {
 function setNextPlayerTurn() {
     $("#throwBtn").removeClass("btn-danger");
     $("#throwBtn").addClass("btn-success");
+
+    $(".dice-img").removeClass("dice-locked").attr('src', '');
     DICE_SET.reset();
 
     currentPlayerTurn++;
     if (currentPlayerTurn > players.length) {
     	currentPlayerTurn = 1;
     }
+
     refreshActivePlayerColumn();
     setHighlightScore();
 }
