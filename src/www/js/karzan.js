@@ -1,3 +1,4 @@
+
 function showAddPlayerForm() {
 
 	addPlayer();
@@ -34,6 +35,7 @@ function addPlayer() {
 		);
 
 		players.push(playerName);
+		hideAddPlayerButton();
 	}
 }
 
@@ -44,6 +46,7 @@ function removePlayer(){
 
 	holder.remove();
 	players.splice(index,1);
+	hideAddPlayerButton();
 }
 
 function changePlayerName(){
@@ -60,4 +63,12 @@ function validatePlayerNames(){
 			players[index] = 'Player ' + (index + 1);
 		}
 	});
+}
+
+function hideAddPlayerButton() {
+	if (players.length >= 4) {
+		$('.addPlayer').hide();
+	} else {
+		$('.addPlayer').show();
+	}
 }
