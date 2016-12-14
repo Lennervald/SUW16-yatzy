@@ -38,7 +38,8 @@ function gamecardSetup() {
 			tr.append('<td>' + ruleNames[i] +'</td>');
 
 			for(var playerIndex = 0; playerIndex < players.length; playerIndex++){
-				tr.append('<td>0</td>');
+				//added class for pushing result to td
+				tr.append('<td class="place-score"></td>');
 			}
 
 			$('.gamecard tbody').append(tr);

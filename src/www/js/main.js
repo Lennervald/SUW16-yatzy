@@ -16,6 +16,7 @@ function includeGameArea() {
     addEventDice();
     gamecardSetup();
     refreshActivePlayerColumn();
+    addPlaceScore();
 }
 
 function includeStartPage() {
@@ -114,6 +115,7 @@ function makeThrow(arr) {
                     animationReady++;
                     if (animationReady === DICE_SET.toThrow()) {
                         inProgress = false;
+                        checkAvailableScoreOptions();
                     }
                 });
                 i++;
@@ -124,8 +126,33 @@ function makeThrow(arr) {
     });
 }
 
-function placePoint(td) {
-	// placePointsInColumn(td);
+function resetAvailableScoreOptions() {
+	var rows = $('.gamecard tbody').children('tr');
+	rows.each(function(index) {
+		$(this).removeClass('unavailable-option');
+	});
+}
+
+function checkAvailableScoreOptions() {
+	var rows = $('.gamecard tbody').children('tr');
+
+	var index = 1;
+	for (var rule in checkScore) {
+		var isEnabled = checkScore[rule]() > 0;
+		// rulesArray.push(isEnabled);
+
+		if (isEnabled) {
+			 $(rows[index]).removeClass('unavailable-option');
+		} else {
+			 $(rows[index]).addClass('unavailable-option');
+		}
+
+		index++;
+	}
+}
+
+function placePoint() {
+	resetAvailableScoreOptions();
 	setNextPlayerTurn();
 }
 
@@ -139,4 +166,23 @@ function setNextPlayerTurn() {
     	currentPlayerTurn = 1;
     }
     refreshActivePlayerColumn();
+    setHighlightScore();
+}
+
+function setHighlightScore() {
+
+    /* Marker for each users latest score round */
+    unHighlightScore();
+    
+    // PS. Replace placesScore when Martins - "AddScore" is ready
+
+    var placedScore = $("td");
+    var highlight = placedScore.addClass("highlightScore");
+
+}
+
+function unHighlightScore() {
+
+    $('td').removeClass("highlightScore");
+
 }
