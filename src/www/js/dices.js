@@ -1,7 +1,6 @@
 function DiceSet() {
     this.dices = [];
     this.throws = 0;
-    this.waitForScore = false;
 
     this.createDices = function () {
         for (var i = 0; i < 5; i++) {
@@ -22,16 +21,6 @@ function DiceSet() {
         return sum;
     };
 
-    this.toThrow = function () {
-        var toThrow = 0;
-        for (var i = 0; i < this.dices.length; i++) {
-            if (this.dices[i].locked === false) {
-                toThrow++;
-            }
-        }
-        return toThrow;
-    };
-
     this.throw = function () {
 
         for (var i = 0; i < this.dices.length; i++) {
@@ -40,11 +29,6 @@ function DiceSet() {
             }
         }
         this.throws++;
-
-        if (this.throws === 3) {
-            this.waitForScore = true;
-        }
-
     };
 
     this.allLocked = function () {
@@ -81,13 +65,6 @@ function DiceSet() {
             console.log(this.dices[i].toString());
         }
     };
-
-
-    this.toString = function () {
-        return "throws: " + this.throws +
-                "\nwaitForScore: " + this.waitForScore;
-    };
-
 }
 
 function Dice(nr) {

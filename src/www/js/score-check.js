@@ -1,14 +1,14 @@
 (function() {
-	checkScore.One = function() { return sumDigit(1); }
-	checkScore.Two = function() { return sumDigit(2); }
-	checkScore.Three = function() { return sumDigit(3); }
-	checkScore.Four = function() { return sumDigit(4); }
-	checkScore.Five = function() { return sumDigit(5); }
-	checkScore.Six = function() { return sumDigit(6); }
+	checkScore.One = function() { return sumDigit(1); };
+	checkScore.Two = function() { return sumDigit(2); };
+	checkScore.Three = function() { return sumDigit(3); };
+	checkScore.Four = function() { return sumDigit(4); };
+	checkScore.Five = function() { return sumDigit(5); };
+	checkScore.Six = function() { return sumDigit(6); };
 
-	checkScore.Sum = function() { return arraySum(DICES_ARR); }
-	checkScore.Bonus = function() { return (checkScore.Sum() >= 63) ? 50 : 0; }
 	// BROKEN SHIT, should NOT depend on the results of current dices
+	checkScore.Sum = function() { return 0; };
+	checkScore.Bonus = function() { return 0; };
 
 	checkScore.Pair = function() { return multiples(2); }
 	checkScore.TwoPair = function() { return twoPair(); }

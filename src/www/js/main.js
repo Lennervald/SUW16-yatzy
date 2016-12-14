@@ -61,7 +61,7 @@ function toggleLockedIcon(diceElem, diceObj) {
 var inProgress = false;
 
 function makeThrow() {
-    if (inProgress) {
+    if (inProgress || DICE_SET.throws === 3) {
         return;
     }
 
@@ -70,15 +70,11 @@ function makeThrow() {
         return;
     }
 
-    if (DICE_SET.waitForScore) {
-        return;
-    }
-
 	resetAvailableScoreOptions();
 
     DICE_SET.throw();
 
-    if (DICE_SET.waitForScore) {
+    if (DICE_SET.throws === 3) {
         $("#throwBtn").removeClass("btn-success");
         $("#throwBtn").addClass("btn-danger");
     }
@@ -142,7 +138,7 @@ function setNextPlayerTurn() {
     }
 
     refreshActivePlayerColumn();
-    
+
 }
 
 function setHighlightScore(td) {
@@ -160,7 +156,7 @@ function unHighlightScore() {
     /* Marker for each users latest score round */
 
     $('td').removeClass("highlightScore");
-    
+
 
 }
 
