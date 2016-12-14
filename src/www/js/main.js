@@ -80,6 +80,8 @@ function makeThrow() {
         return;
     }
 
+	resetAvailableScoreOptions();
+
     DICE_SET.throw();
 
     if (DICE_SET.waitForScore) {
@@ -119,15 +121,9 @@ function checkAvailableScoreOptions() {
 
 	var index = 1;
 	for (var rule in checkScore) {
-		var isEnabled = checkScore[rule]() > 0;
-		// rulesArray.push(isEnabled);
-
-		if (isEnabled) {
-			 $(rows[index]).removeClass('unavailable-option');
-		} else {
-			 $(rows[index]).addClass('unavailable-option');
+		if (checkScore[rule]() == 0) {
+			$(rows[index]).addClass('unavailable-option');
 		}
-
 		index++;
 	}
 }
@@ -157,7 +153,7 @@ function setHighlightScore() {
 
     /* Marker for each users latest score round */
     unHighlightScore();
-    
+
     // PS. Replace placesScore when Martins - "AddScore" is ready
 
     var placedScore = $("td");
@@ -166,7 +162,5 @@ function setHighlightScore() {
 }
 
 function unHighlightScore() {
-
     $('td').removeClass("highlightScore");
-
 }
