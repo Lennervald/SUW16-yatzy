@@ -35,6 +35,7 @@ function addPlaceScore(){
 				}
 			}
 			placePoint();
+			setHighlightScore(this);
 		}
 	});
 }
