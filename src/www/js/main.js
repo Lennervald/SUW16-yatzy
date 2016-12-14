@@ -16,6 +16,7 @@ function includeGameArea() {
     addEventDice();
     gamecardSetup();
     refreshActivePlayerColumn();
+    addPlaceScore();
 }
 
 function includeStartPage() {
