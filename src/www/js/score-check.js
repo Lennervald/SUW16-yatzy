@@ -6,21 +6,20 @@
 	checkScore.Five = function() { return sumDigit(5); };
 	checkScore.Six = function() { return sumDigit(6); };
 
-	// BROKEN SHIT, should NOT depend on the results of current dices
 	checkScore.Sum = function() { return 0; };
 	checkScore.Bonus = function() { return 0; };
 
-	checkScore.Pair = function() { return multiples(2); }
-	checkScore.TwoPair = function() { return twoPair(); }
-	checkScore.Threesome = function() { return multiples(3); }
-	checkScore.Foursome = function() { return multiples(4); }
+	checkScore.Pair = function() { return multiples(2); };
+	checkScore.TwoPair = function() { return twoPair(); };
+	checkScore.Threesome = function() { return multiples(3); };
+	checkScore.Foursome = function() { return multiples(4); };
 
-	checkScore.SmallStraight = function() { return hasStraightWithout(6) ? 15 : 0; }
-	checkScore.LargeStraight = function() { return hasStraightWithout(1) ? 20 : 0; }
+	checkScore.SmallStraight = function() { return hasStraightWithout(6) ? 15 : 0; };
+	checkScore.LargeStraight = function() { return hasStraightWithout(1) ? 20 : 0; };
 
-	checkScore.FullHouse = function() { return fullHouse(); }
-	checkScore.Chance = function() { return arraySum(DICES_ARR); }
-	checkScore.Yahtzee = function() { return multiples(5) ? 50 : 0; }
+	checkScore.FullHouse = function() { return fullHouse(); };
+	checkScore.Chance = function() { return arraySum(DICES_ARR); };
+	checkScore.Yahtzee = function() { return multiples(5) ? 50 : 0; };
 
 
 	function sumDigit(aDigit) {

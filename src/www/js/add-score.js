@@ -85,8 +85,6 @@ function calculateExtraPoints() {
 
 	var total = getSumOfCurrentPlayer(7,18);
 	getTdOfPlayer(trTotal).text(total);
-
-
 }
 
 function getSumOfCurrentPlayer(start, end) {
@@ -110,3 +108,35 @@ function getTdOfPlayer(tr){
 	var trChildren = tr.children('td');
 	return $(trChildren[currentPlayerTurn]);
 }
+
+function showWinnerAtGameEnd() {
+	if (players.length === currentPlayerTurn){
+		var trs = $('.gamecard tbody tr').slice(1, 7);
+		var trs2 = $('.gamecard tbody tr').slice(9, 18);
+		trs = $.merge(trs, trs2);
+
+		var isAnyTdEmpty = false;
+
+		trs.each(
+			function(i, tr) {
+				var trChildren = $(tr).children('td');
+				var empty = $(trChildren[currentPlayerTurn]).text() === "";
+
+				if (empty){
+					isAnyTdEmpty = true;
+				}
+			}
+		);
+
+		if(isAnyTdEmpty === false) {
+			showWinner();
+		}
+
+	}	
+}
+
+
+
+
+
+

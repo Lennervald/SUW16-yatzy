@@ -1,23 +1,30 @@
-function showWinner(playersArr) {
 
-    if (!playersArr) {
 
-        var dummyPlayersArr = [
-            {name: 'Michael', score: 358},
-            {name: 'Nisse', score: 321},
-            {name: 'Olov', score: 255},
-            {name: 'Jonathan', score: 249}
-        ];
+function showWinner() {
 
-        updatePlayersAndScore(dummyPlayersArr);
-    } else {
-        updatePlayersAndScore(playersArr);
-    }
+    var playersArray = [];
+
+    var tr18 = $('.gamecard tbody tr')[18];
+    var tds  = $(tr18).children('td');
+
+    players.forEach(function(name, i){
+        playersArray[i] = {'name': name, 'score': $(tds[i+1]).text()};
+    });
+
+    var highestScore = 0;
+    playersArray.forEach (function(pl){
+        if (pl.score > highestScore){
+            highestScore = pl.score;
+        }
+    });
+
+    updatePlayersAndScore(playersArray, highestScore);
+
 
     $('#win-popup').modal();
 }
 
-function updatePlayersAndScore(playersArr) {
+function updatePlayersAndScore(playersArr, highestScore) {
 
 	console.log('updatePlayersAndScore(), playersArr = ', playersArr);
 
@@ -25,7 +32,11 @@ function updatePlayersAndScore(playersArr) {
 		var plStr = 'p'+(index+1);
 		console.log('.player.'+plStr, $('.player.'+plStr));
 		$('.player.'+plStr).html(playersArr[index].name);
-		$('.score.'+plStr).html(playersArr[index].score);
+        $('.score.'+plStr).html(playersArr[index].score);
+        if(playersArr[index].score === highestScore){
+            $('.player.'+plStr).addClass('highest-score');
+            $('.score.'+plStr).addClass('highest-score');
+        }
 	}
 }
 

@@ -112,7 +112,7 @@ function checkAvailableScoreOptions() {
 
 	var index = 1;
 	for (var rule in checkScore) {
-		if (checkScore[rule]() == 0) {
+		if (checkScore[rule]() === 0) {
 			$(rows[index]).addClass('unavailable-option');
 		}
 		index++;
@@ -121,6 +121,7 @@ function checkAvailableScoreOptions() {
 
 function placePoint() {
 	calculateExtraPoints();
+    showWinnerAtGameEnd();
 	resetAvailableScoreOptions();
 	setNextPlayerTurn();
 }
