@@ -3,6 +3,7 @@ $(document).ready(function(){
 		$("#gamearea").remove();
 		includeStartPage();
 		players = [];
+		currentPlayerTurn = 1;
 		showAddPlayerForm();
 	});
 

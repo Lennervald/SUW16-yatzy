@@ -31,17 +31,23 @@ function calculateExtraPoints() {
 	var trs = $('.gamecard tbody tr');
 
 	var trSum = $(trs[7]);
-	var trBonus = trs[8];
-	var trTotal = trs[18];
+	var trBonus = $(trs[8]);
+	var trTotal = $(trs[18]);
 
-	var sum = getSumOfCurrentPlayer();
+	var sum = getSumOfCurrentPlayer(1,7);
 	var bonus = sum >= 63 ? 50 : 0;
 
 	getTdOfPlayer(trSum).text(sum);
+	getTdOfPlayer(trBonus).text(bonus);
+
+	var total = getSumOfCurrentPlayer(7,18);
+	getTdOfPlayer(trTotal).text(total);
+
+
 }
 
-function getSumOfCurrentPlayer() {
-	var trs = $('.gamecard tbody tr').slice(1, 7);
+function getSumOfCurrentPlayer(start, end) {
+	var trs = $('.gamecard tbody tr').slice(start, end);
 
 	var sum = 0;
 
@@ -59,8 +65,5 @@ function getSumOfCurrentPlayer() {
 
 function getTdOfPlayer(tr){
 	var trChildren = tr.children('td');
-
-
-	// make sure click is inside current player TD
 	return $(trChildren[currentPlayerTurn]);
 }
