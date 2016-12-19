@@ -23,20 +23,15 @@ function addPlayer() {
 	if (players.length < 4) {
 		var playerName = 'Player ' + (players.length + 1);
 
-		$('.player-list').append(
-			'<div class="player-input-holder">' +
-				'<div class="col-xs-8">' +
-					'<input value="' + playerName + '"></input>' +
-				'</div>' +
-				'<div class="col-xs-2">' +
-					'<button class="glyphicon glyphicon-user toggleBotPlayer"></button>'
-					 +
-				'</div>' +
-				'<div class="col-xs-2">' +
-					'<button class="glyphicon glyphicon-remove-circle deletePlayer"></button>' +
-				'</div>' +
-			'</div>'
-		);
+	$('.player-list').append(
+		'<form class="form-inline">' + 
+		'<div class="form-group player-input-holder">' +
+		'<input value="' + playerName + '" class="form-control form-content player-field">' +
+		'<button class="btn btn-default form-content glyphicon glyphicon-user toggleBotPlayer"></button>' +
+		'<button class="btn btn-default form-content glyphicon glyphicon-remove-circle deletePlayer"></button>' +
+		'</div>' + 
+		'</form>'
+	);
 
 		players.push(playerName);
 		hideAddPlayerButton();
