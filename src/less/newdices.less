@@ -9,15 +9,15 @@
         height: 72px;
         display: block;
         margin-bottom: 8px;
-        // padding-top: 5px;
-        // margin-top: 8px;
         background-color: #fff;
         color: #fff;
         opacity: 0.7;
     }
 
-
-
+    .dice-img:hover{
+        -webkit-transition: all ease-in-out 300ms;
+        transition: all ease-in-out 300ms;
+    }
 
     .dice-locked{
         -ms-transform: rotate(7deg); /* IE 9 */
@@ -51,6 +51,25 @@
         position: relative;
     }
 
+}
+
+
+// =========== MEDIA QURIES ======
+
+@media (max-width: 340px) {
+    .dices-container-main {
+        .dice-img {
+            width: 62px;
+            height: 62px;
+        }
+        .throw-btz {
+            width: 62px;
+            height: 62px;
+            font-size: 12px;
+            line-height: 38px; /*or you could use 4em*/
+        }
+
+    }
 }
 
 
