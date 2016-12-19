@@ -35,6 +35,7 @@ function addNewGameEventListener() {
 }
 
 function addEventDice() {
+    ///
     $(".dice-img").click(function () {
         var diceObj = $(this).data("diceObj");
 
