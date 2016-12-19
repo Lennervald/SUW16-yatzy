@@ -119,6 +119,7 @@ function checkAvailableScoreOptions() {
 }
 
 function placePoint() {
+	calculateExtraPoints();
 	resetAvailableScoreOptions();
 	setNextPlayerTurn();
 }

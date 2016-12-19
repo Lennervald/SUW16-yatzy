@@ -27,4 +27,40 @@ function addPlaceScore(){
 	});
 }
 
+function calculateExtraPoints() {
+	var trs = $('.gamecard tbody tr');
 
+	var trSum = $(trs[7]);
+	var trBonus = trs[8];
+	var trTotal = trs[18];
+
+	var sum = getSumOfCurrentPlayer();
+	var bonus = sum >= 63 ? 50 : 0;
+
+	getTdOfPlayer(trSum).text(sum);
+}
+
+function getSumOfCurrentPlayer() {
+	var trs = $('.gamecard tbody tr').slice(1, 7);
+
+	var sum = 0;
+
+	trs.each(
+		function(i, tr) {
+			var trChildren = $(tr).children('td');
+			var points = $(trChildren[currentPlayerTurn]);
+
+			sum += points.text() / 1;
+		}
+	);
+
+	return sum;
+}
+
+function getTdOfPlayer(tr){
+	var trChildren = tr.children('td');
+
+
+	// make sure click is inside current player TD
+	return $(trChildren[currentPlayerTurn]);
+}

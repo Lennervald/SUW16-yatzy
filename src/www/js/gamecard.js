@@ -46,7 +46,6 @@ function gamecardSetup() {
 		}
 	}
 
-
 	function addShades() {
 		for(i = 0; i < shadedRulesRowIndices.length; i++){
 			var shadedTr = $($('.gamecard tbody tr')[shadedRulesRowIndices[i]]);
