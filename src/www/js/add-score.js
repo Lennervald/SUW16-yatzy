@@ -22,8 +22,10 @@ function addPlaceScore(){
 			for (var rule in checkScore){
 				if (trIndex === x){
 
-					if ($(this).text() == ""){
-						$(this).text(checkScore[rule]());	
+					// add points to game card
+					if ($(this).text() === ""){
+						$(this).text(checkScore[rule]());
+						$(this).addClass('.points-added');	
 					}	else {
 						return;
 					}
@@ -41,12 +43,12 @@ function addPlaceScore(){
 	// adds 0 as value
 
 
-	$('body').on('click','tr.unavailable-option td.place-score',function(){
+	$('body').on('click','tr.unavailable-option td.place-score td:not(.points-added)',function(){
 
     if (inProgress || DICE_SET.throws === 0) {
         return;
     }
-    
+
 		var tr = $(this).closest('tr');
 		var trChildren = tr.children('td');
 
@@ -62,7 +64,8 @@ function addPlaceScore(){
 			for (var rule in checkScore){
 				if (trIndex === x){
 
-					if ($(this).text() == ""){
+					// player have clicked an empty option and will be asked to cross it or not
+					if ($(this).text() === ""){
 						var answer = confirm('Är du säker på att du vill stryka resultatet?');
 						if (answer){
 							$(this).text(0);
