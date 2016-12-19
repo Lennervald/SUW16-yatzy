@@ -2,6 +2,11 @@
 // Add specific score to gamecard
 function addPlaceScore(){
 	$('body').on('click','tr:not(.unavailable-option) td.place-score',function(){
+
+    if (inProgress || DICE_SET.throws === 0) {
+        return;
+    }
+
 		var tr = $(this).closest('tr');
 		var trChildren = tr.children('td');
 
@@ -37,6 +42,11 @@ function addPlaceScore(){
 
 
 	$('body').on('click','tr.unavailable-option td.place-score',function(){
+
+    if (inProgress || DICE_SET.throws === 0) {
+        return;
+    }
+    
 		var tr = $(this).closest('tr');
 		var trChildren = tr.children('td');
 
