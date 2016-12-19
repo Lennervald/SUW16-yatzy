@@ -16,7 +16,50 @@ function addPlaceScore(){
 			var x = 1;
 			for (var rule in checkScore){
 				if (trIndex === x){
-					$(this).text(checkScore[rule]());
+
+					if ($(this).text() == ""){
+						$(this).text(checkScore[rule]());	
+					}	else {
+						return;
+					}
+
+				}
+				x++;
+			}
+
+			placePoint();
+			setHighlightScore(this);
+		}
+	});
+
+
+	// adds 0 as value
+
+
+	$('body').on('click','tr.unavailable-option td.place-score',function(){
+		var tr = $(this).closest('tr');
+		var trChildren = tr.children('td');
+
+
+		// make sure click is inside current player TD
+		if (trChildren[currentPlayerTurn] == this){
+
+			// Get index for the clicked TR
+			var trIndex = tr.index();
+
+			// Check which rule has the same index as our TR
+			var x = 1;
+			for (var rule in checkScore){
+				if (trIndex === x){
+
+					if ($(this).text() == ""){
+						var answer = confirm('Är du säker på att du vill stryka resultatet?');
+						if (answer){
+							$(this).text(0);
+						}
+						else
+							return;
+					}
 				}
 				x++;
 			}
