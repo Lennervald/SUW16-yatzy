@@ -1,5 +1,13 @@
 $(document).ready(function () {
     go();
+
+    if ($(this).text() === ""){
+                        // $(this).text(checkScore[rule]());
+                        // $(this).addClass('.points-added');  
+                        $('body').append('<p>hey</p>');
+                    }   else {
+                        return;
+                    }
 });
 
 
@@ -114,6 +122,7 @@ function checkAvailableScoreOptions() {
 	for (var rule in checkScore) {
 		if (checkScore[rule]() === 0) {
 			$(rows[index]).addClass('unavailable-option');
+            $(rows[0]).addClass('unavailable-option');
 		}
 		index++;
 	}
