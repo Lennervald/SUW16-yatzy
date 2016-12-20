@@ -126,8 +126,11 @@ function checkAvailableScoreOptions() {
 		if (checkScore[rule]() === 0) {
 			$(rows[index]).addClass('unavailable-option');
             $(rows[0]).addClass('unavailable-option');
-		}
-		index++;
+        } else if ($($(rows[index]).children('td')[currentPlayerTurn]).text() !== ''){
+            $(rows[index]).addClass('unavailable-option');
+        }
+
+        index++;
 	}
 }
 
