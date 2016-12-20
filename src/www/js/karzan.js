@@ -27,14 +27,15 @@ function addPlayer() {
 		'<form class="form-inline">' + 
 		'<div class="form-group player-input-holder">' +
 		'<input value="' + playerName + '" class="form-control form-content player-field">' +
-		'<button class="btn btn-default form-content glyphicon glyphicon-user toggleBotPlayer"></button>' +
-		'<button class="btn btn-default form-content glyphicon glyphicon-remove-circle deletePlayer"></button>' +
+		'<button class="btn btn-default form-content glyphicon glyphicon-user toggleBotPlayer" type="button"></button>' +
+		'<button class="btn btn-default form-content glyphicon glyphicon-remove-circle deletePlayer" type="button"></button>' +
 		'</div>' + 
 		'</form>'
 	);
 
 		players.push(playerName);
 		hideAddPlayerButton();
+		noEnterKey();
 	}
 }
 
@@ -76,5 +77,16 @@ function hideAddPlayerButton() {
 
 function swapPlayer() {
 	$(this).toggleClass('glyphicon-knight').toggleClass('glyphicon-user');
+}
+
+function noEnterKey() {
+    $('.player-field').keypress(function(event) {
+
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+
+    
 }
 
