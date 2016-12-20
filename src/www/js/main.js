@@ -1,13 +1,5 @@
 $(document).ready(function () {
     go();
-
-    if ($(this).text() === ""){
-                        // $(this).text(checkScore[rule]());
-                        // $(this).addClass('.points-added');  
-                        $('body').append('<p>hey</p>');
-                    }   else {
-                        return;
-                    }
 });
 
 
