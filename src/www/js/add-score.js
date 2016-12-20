@@ -25,7 +25,6 @@ function addPlaceScore(){
 					// add points to game card
 					if ($(this).text() === ""){
 						$(this).text(checkScore[rule]());
-						$(this).addClass('.points-added');	
 					}	else {
 						return;
 					}
@@ -43,7 +42,7 @@ function addPlaceScore(){
 	// adds 0 as value
 
 
-	$('body').on('click','tr.unavailable-option td.place-score td:not(.points-added)',function(){
+	$('body').on('click','tr.unavailable-option td.place-score',function(){
 
     if (inProgress || DICE_SET.throws === 0) {
         return;
