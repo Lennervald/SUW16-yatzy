@@ -53,6 +53,8 @@ function gamecardSetup() {
 			shadedTr.addClass('gamecard-shade');
 
 			shadedTr.children(":first").addClass('gamecard-shade-darker');
+
+			shadedTr.children().removeClass('place-score');
 		}
 	}
 
