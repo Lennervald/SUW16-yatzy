@@ -35,17 +35,28 @@ function addNewGameEventListener() {
 }
 
 function addEventDice() {
-    ///
-    $(".dice-img").click(function () {
-        var diceObj = $(this).data("diceObj");
+    
+    if(window.diceLockEventsBound){ return; }
 
-        // Locking only works after first and before last throw
-        if (DICE_SET.throws > 0 && DICE_SET.throws < 3) {
-            $(this).toggleClass("dice-locked");
-            toggleLockedIcon($(this), diceObj);
+    $("body").on("click",".dice-img, .dice-lock", function () {
+
+        var me = $(this);
+        if(me.hasClass('dice-lock')){
+            // change me from the dice-lock to the dice img
+            me = me.prev('.dice-img');
+        }
+
+        var diceObj = me.data("diceObj");
+
+        // Locking only works after first
+        if (DICE_SET.throws > 0) {
+            me.toggleClass("dice-locked");
+            toggleLockedIcon(me, diceObj);
             diceObj.toggleLock();
         }
     });
+
+    window.diceLockEventsBound = true;
 }
 
 function toggleLockedIcon(diceElem, diceObj) {

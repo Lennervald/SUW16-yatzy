@@ -39,10 +39,10 @@ function addPlaceScore(){
 	});
 
 
-	// adds 0 as value
-
-
+	// crossing (adds 0 in an empty field)
 	$('body').on('click','tr.unavailable-option td.place-score',function(){
+
+		if($(this).text() !== ""){ return; }
 
     if (inProgress || DICE_SET.throws === 0) {
         return;
