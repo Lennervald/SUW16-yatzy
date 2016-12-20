@@ -1,4 +1,6 @@
-﻿1.Som spelare vill jag kunna ange hur många deltagare (max 4 st) som ska vara med i spelet samt om det ska finnas en eller flera deltagare som är datorstyrda. 
+﻿Sprint 1
+
+1.Som spelare vill jag kunna ange hur många deltagare (max 4 st) som ska vara med i spelet samt om det ska finnas en eller flera deltagare som är datorstyrda. 
 
 2.Som spelare vill jag inledningsvis kunna ange mitt namn
 
@@ -29,6 +31,28 @@
 14. Som produktägare vill jag att spelat ska fungera på olika devices - dvs. ha en responsiv design.
 
 
+------------------------------
+
+Sprint 2
 
 
+1. Som spelare vill jag att det ska vara lätt för mig att placera ut poäng med minimerad risk att klicka på angränsande poäng-rutor.
+
+2. Som spelar vill jag ha en förstärkning visuellt av vems tur det är att kasta tärningarna samt spelarens möjliga val att placera ut poäng.
+
+3. Spm spelare vill jag att utseendet på spelbrädan är är responsivt i alla storlekar.
+
+4. Som spelare vill jag inte mötas av confirm/alert rutor utan istället av trevligt designade modal från bootstrap
+
+5. Som spelare vill jag kunna se spelreglerna för yatzy
+
+6. Som spelar vill jag att det blir ännu tydligare vilka strykningar som är gjorda på spelplanen.
+
+7. Som spelare vill jag att spelet ska framgå på svenska överallt 
+
+8. Som spelare vill jag bli presenterad av en del ljudelement, dels vid interaktion med spelet men även avtängningsbar bakgrundsmusik
+
+9. Som spelare vill jag kunna vrida till landscape-läge utan att spelet roterar
+
+10. Som spelare vill jag att ett tärningskast ska förstärkas en aning med hjälp av en enkel animation 
 
