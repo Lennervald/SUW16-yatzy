@@ -74,8 +74,12 @@ function gamecardSetup() {
 	function shortenedPlayerName(playerIndex) {
 		var playerName = players[playerIndex];
 
-		if (playerName.length > 3) {
+		if (playerName.indexOf(' ') >= 0){
 			playerName = playerName[0] + playerName[1] + playerName[playerName.length-1];
+			// console.log("has space");
+		} else {
+			playerName = playerName[0] + playerName[1] + playerName[2];
+			// console.log("no space");	
 		}
 
 		return playerName.toUpperCase();
