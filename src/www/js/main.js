@@ -78,7 +78,7 @@ function toggleLockedIcon(diceElem, diceObj) {
 var inProgress = false;
 
 function makeThrow() {
-    if (inProgress) {
+    if (inProgress || DICE_SET.throws === 3) {
         return;
     }
 
