@@ -29,6 +29,20 @@ function DiceSet() {
             }
         }
         this.throws++;
+
+        if (this.throws === 3) {
+            this.removeLockedIcons();
+        }
+    };
+
+    this.toThrow = function () {
+        var toThrow = 0;
+        for (var i = 0; i < this.dices.length; i++) {
+            if (this.dices[i].locked === false) {
+                toThrow++;
+            }
+        }
+        return toThrow;
     };
 
     this.allLocked = function () {
@@ -51,7 +65,14 @@ function DiceSet() {
         for (var i = 0; i < this.dices.length; i++) {
             this.dices[i].removeLockedIcon();
         }
+        removeAllClassesX("dice-locked");
     };
+
+    function removeAllClassesX(class_) {
+        $("." + class_).each(function () {
+            $(this).removeClass(class_);
+        });
+    }
 
     this.reset = function () {
         for (var i = 0; i < this.dices.length; i++) {
@@ -74,11 +95,11 @@ function Dice(nr) {
     this.lockedIcon;
 
     this.setLockedIcon = function (lockedIcon) {
-       this.lockedIcon = lockedIcon;
+        this.lockedIcon = lockedIcon;
     };
 
-     this.removeLockedIcon = function () {
-       $(this.lockedIcon).remove();
+    this.removeLockedIcon = function () {
+        $(this.lockedIcon).remove();
     };
 
     this.throw = function () {

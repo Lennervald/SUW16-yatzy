@@ -28,20 +28,26 @@ function addWinnerPopupTemplate() {
 }
 
 function addNewGameEventListener() {
-	$("body").on("click", ".new-game-button", function () {
-		DICE_SET.reset();
-		DICE_SET.removeLockedIcons();
-	});
+    $("body").on("click", ".new-game-button", function () {
+        DICE_SET.reset();
+        DICE_SET.removeLockedIcons();
+    });
 }
 
 function addEventDice() {
-    
-    if(window.diceLockEventsBound){ return; }
 
-    $("body").on("click",".dice-img, .dice-lock", function () {
+    if (window.diceLockEventsBound) {
+        return;
+    }
+
+    $("body").on("click", ".dice-img, .dice-lock", function () {
+
+        if (DICE_SET.throws === 3) {
+            return;
+        }
 
         var me = $(this);
-        if(me.hasClass('dice-lock')){
+        if (me.hasClass('dice-lock')) {
             // change me from the dice-lock to the dice img
             me = me.prev('.dice-img');
         }
@@ -63,7 +69,6 @@ function toggleLockedIcon(diceElem, diceObj) {
     if (diceObj.locked === false) {
         var icon = $('<img class="dice-lock" src="images/locked.png" alt="locked">');
         diceElem.closest('div').append(icon);
-
         diceObj.setLockedIcon(icon);
     } else if (diceObj.locked) {
         diceObj.removeLockedIcon();
@@ -73,7 +78,7 @@ function toggleLockedIcon(diceElem, diceObj) {
 var inProgress = false;
 
 function makeThrow() {
-    if (inProgress || DICE_SET.throws === 3) {
+    if (inProgress) {
         return;
     }
 
@@ -82,7 +87,7 @@ function makeThrow() {
         return;
     }
 
-	resetAvailableScoreOptions();
+    resetAvailableScoreOptions();
 
     DICE_SET.throw();
 
@@ -91,54 +96,61 @@ function makeThrow() {
         $("#throwBtn").addClass("btn-danger");
     }
 
-    var i = 0;
     var animationReady = 0;
 
-    $(".dice-img").each(function(i) {
+    $(".dice-img").each(function (i) {
         inProgress = true;
 
-        if ($(this).hasClass("dice-locked") === false) {
+        if ($(this).hasClass("dice-locked") === false) { // dice-unlocked
             $(this).animate({opacity: 0}, 200, function () {
                 $(this).attr("src", "images/dice_" + DICES_ARR[i].result + ".png");
                 $(this).attr("alt", "dice_" + DICES_ARR[i].result + ".png");
                 $(this).data("diceObj", DICES_ARR[i]);
-                $(this).delay(200).animate({opacity: 1}, 500, function () {
-                    inProgress = false;
-                    checkAvailableScoreOptions();
+                $(this).delay(300 * i).animate({opacity: 1}, 500, function () {
+                    animationReady++;
+                    if (animationReady === DICE_SET.toThrow()) {
+                        //
+                        inProgress = false;
+                        //
+                        checkAvailableScoreOptions();
+                        //
+                    }
                 });
             });
         }
+
     });
+
 }
 
 function resetAvailableScoreOptions() {
-	var rows = $('.gamecard tbody').children('tr');
-	rows.each(function(index) {
-		$(this).removeClass('unavailable-option');
-	});
+    var rows = $('.gamecard tbody').children('tr');
+    rows.each(function (index) {
+        $(this).removeClass('unavailable-option');
+    });
 }
 
 function checkAvailableScoreOptions() {
-	var rows = $('.gamecard tbody').children('tr');
+    var rows = $('.gamecard tbody').children('tr');
 
-	var index = 1;
-	for (var rule in checkScore) {
-		if (checkScore[rule]() === 0) {
-			$(rows[index]).addClass('unavailable-option');
+    var index = 1;
+    for (var rule in checkScore) {
+        if (checkScore[rule]() === 0) {
+            $(rows[index]).addClass('unavailable-option');
             $(rows[0]).addClass('unavailable-option');
-        } else if ($($(rows[index]).children('td')[currentPlayerTurn]).text() !== ''){
+        } else if ($($(rows[index]).children('td')[currentPlayerTurn]).text() !== '') {
             $(rows[index]).addClass('unavailable-option');
         }
 
         index++;
-	}
+    }
 }
 
 function placePoint() {
-	calculateExtraPoints();
+    calculateExtraPoints();
     showWinnerAtGameEnd();
-	resetAvailableScoreOptions();
-	setNextPlayerTurn();
+    resetAvailableScoreOptions();
+    setNextPlayerTurn();
 }
 
 function setNextPlayerTurn() {
@@ -148,11 +160,11 @@ function setNextPlayerTurn() {
     $(".dice-img").removeClass("dice-locked").attr('src', '');
     $(".dice-lock").remove();
     DICE_SET.reset();
-	DICE_SET.removeLockedIcons();
+    DICE_SET.removeLockedIcons();
 
     currentPlayerTurn++;
     if (currentPlayerTurn > players.length) {
-    	currentPlayerTurn = 1;
+        currentPlayerTurn = 1;
     }
 
     refreshActivePlayerColumn();
