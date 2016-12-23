@@ -1,47 +1,60 @@
 
 .center-game {
-	text-align:center;	
+    text-align:center;	
 }
 
 .game-logo {
-	padding-top: 20px;
-	width: 200px;
-	display: inline-block;
-	margin-bottom: 40px;
+    padding-top: 20px;
+    width: 200px;
+    display: inline-block;
+    margin-bottom: 40px;
 }
 
 .player-field {
-	width: 50%;
-	display: inline-block;
-	.btn {
-		display: inline-block;
-	}
+    width: 50%;
+    display: inline-block;
+    .btn {
+        display: inline-block;
+    }
 }
 
 .form-content {
-	margin-right: 6px;
-	// margin-bottom: 4px;
+    margin-right: 6px;
+    // margin-bottom: 4px;
 }
 
 .small-btz {
-	color: white;
-	background-color: black;
-	border-color: black;
-	margin-bottom: 10px;
+    color: white;
+    background-color: black;
+    border-color: black;
+    margin-bottom: 10px;
 
-	&:disabled {
-		display: none;
-	}
+    &:disabled {
+        display: none;
+    }
 }
 
 .game-header {
-	padding-top: 12px;
-	padding-bottom: 6px;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    position: relative;
+
+    .game-logo-small {
+        width: 110px;
+        margin-bottom: 4px;
+        margin-right: 10px;
+    }
+
+    .info-icon{
+        position: absolute; 
+        right: 15px;
+        top: 5px;
+        width: 35px;  
+    }
+    
+    .info-icon:hover{
+        cursor: pointer;
+    }
 
 }
-.game-logo-small {
-	width: 110px;
-	margin-bottom: 4px;
-	margin-right: 10px;
 
-}

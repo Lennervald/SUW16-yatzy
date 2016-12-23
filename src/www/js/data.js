@@ -48,7 +48,7 @@ function showInfoModal(title, infoMsg, size) {
     } else {
         $("body").append(modalObj);
     }
-    
+
     $('#modal-info').modal();
 }
 
@@ -85,6 +85,28 @@ function showConfirmModal(title, infoMsg, size, obj) {
     //
     $('#modal-confirm').modal();
     //
+}
+
+
+function showRulesModal(title,size) {
+    //
+    var modalObj = $.parseHTML(loadTemplate("templates/modal_rules.html"));
+    $(modalObj).find(".modal-title").text(title);
+    //
+    if (size === 'sm') {
+        $(modalObj).find(".modal-dialog").addClass("modal-sm");
+    } else if (size === 'lg') {
+        $(modalObj).find(".modal-dialog").addClass("modal-lg");
+    }
+    //
+    if (exists("#modal-info")) {
+        $("#modal-info").remove();
+        $("body").append(modalObj);
+    } else {
+        $("body").append(modalObj);
+    }
+    //
+    $('#modal-info').modal();
 }
 
 

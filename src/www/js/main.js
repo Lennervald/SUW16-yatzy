@@ -12,11 +12,18 @@ function includeGameArea() {
     includeHtml("templates/gamearea.html", "body");
     addWinnerPopupTemplate();
     addNewGameEventListener();
+    addInfoBtnListener();
     $("#throwBtn").click(makeThrow);
     addEventDice();
     gamecardSetup();
     refreshActivePlayerColumn();
     addPlaceScore();
+}
+
+function addInfoBtnListener(){
+    $("body").on('click',".info-icon", function (){
+        showRulesModal('Regler','lg');
+    });
 }
 
 function includeStartPage() {
