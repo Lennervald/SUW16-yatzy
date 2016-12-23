@@ -29,10 +29,6 @@ function DiceSet() {
             }
         }
         this.throws++;
-
-        if (this.throws === 3) {
-            this.removeLockedIcons();
-        }
     };
 
     this.toThrow = function () {
