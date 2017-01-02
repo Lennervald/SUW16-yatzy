@@ -33,6 +33,7 @@ function addPlaceScore() {
                 x++;
             }
 
+            audioPlacePoints();
             placePoint();
             setHighlightScore(this);
         }
@@ -165,6 +166,7 @@ function showWinnerAtGameEnd() {
         );
 
         if (isAnyTdEmpty === false) {
+            audioWinnerFanfare();
             showWinner();
         }
 

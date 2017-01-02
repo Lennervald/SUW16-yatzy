@@ -10,11 +10,16 @@ $(document).ready(function(){
 	$("body").on("click", ".start-game-button", function () {
 		if (players.length == 0) {
 //			alert('You need to have at least 1 player.');
-                        showInfoModal("OBS!","Åtminstone en spelare måste vara med");
+            showInfoModal("OBS!","Åtminstone en spelare måste vara med");
 		} else {
 			$("#start-page").remove();
 			validatePlayerNames();
 			includeGameArea();
 		}
 	});
+
+	$('body').on('click', '.addPlayer', audioButtonClick);
+	$('body').on('click', '.deletePlayer', audioReverseButtonClick);
+	$('body').on('click', '.start-game-button', audioButtonClick);
+	
 });

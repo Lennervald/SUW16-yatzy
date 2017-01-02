@@ -1,7 +1,7 @@
 
 
 function showWinner() {
-
+    audioWinnerFanfare();
     var playersArray = [];
 
     var tr18 = $('.gamecard tbody tr')[18];

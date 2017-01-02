@@ -92,14 +92,17 @@ function Dice(nr) {
 
     this.setLockedIcon = function (lockedIcon) {
         this.lockedIcon = lockedIcon;
+        audioDiceLock();
     };
 
     this.removeLockedIcon = function () {
         $(this.lockedIcon).remove();
+        audioDiceUnlock();
     };
 
     this.throw = function () {
         this.result = Math.ceil(Math.random() * 6);
+        audioThrow();
         return this.result;
     };
 
