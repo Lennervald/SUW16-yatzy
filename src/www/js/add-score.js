@@ -68,7 +68,7 @@ function addPlaceScore() {
 
                     // player have clicked an empty option and will be asked to cross it or not
                     if ($(this).text() === "") {
-                        showConfirmModal("OBS!", "Är du säker på att du vill stryka resultatet?",'sm',$(this));
+                        showConfirmModal("OBS!", "Är du säker på att du vill stryka resultatet?",'sm',$(this),"warning");
                         return;
                     }
                 }

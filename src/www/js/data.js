@@ -63,7 +63,7 @@ $("html").on('click', '#modal-yes-btn', function () {
 
 var CONFIRM_MODAL_OBJ;
 
-function showConfirmModal(title, infoMsg, size, obj) {
+function showConfirmModal(title, infoMsg, size, obj, type) {
     //
     CONFIRM_MODAL_OBJ = obj;
     //
@@ -76,6 +76,9 @@ function showConfirmModal(title, infoMsg, size, obj) {
     } else if (size === 'lg') {
         $(modalObj).find(".modal-dialog").addClass("modal-lg");
     }
+    //available-types: 'warning','error',
+    $(modalObj).find(".modal-header").addClass(type);
+    //
     //
     if (exists("#modal_confirm")) {
         $("#modal_confirm").remove();
