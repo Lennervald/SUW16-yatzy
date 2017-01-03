@@ -53,6 +53,7 @@ $(document).ready(function() {
             this.currentTime = 0;
             this.play();
         }, false);
+
         audioTheme.play();
 
         $('.sound-symbol').click(function() {
@@ -61,7 +62,6 @@ $(document).ready(function() {
                 playing = false;
                 // $(this).text("music on");
                 $(this).html('<div class="sound-symbol audio-button"><span class="' + glyphOn + '" aria-hidden="true"></span></div>');
-                
             } else {
                 audioTheme.pause();
                 playing = true;
@@ -80,8 +80,8 @@ $(document).ready(function() {
 /* function for playing all selected clips */
 
 function playAudio(selectedClip) {
-        $(selectedClip)[0].play();
-    }
+    $(selectedClip)[0].play();
+}
 
 
 /* All Functions below are called on from other js scripts. */
@@ -104,35 +104,19 @@ function audioDiceUnlock() {
 
 function audioThrow() {
     // This function is called from add-score.js
-    var randomSound = Math.random();
-
-    if (randomSound < 0.12) {
-        playAudio('.play_audio_dice1');
-    } else if (randomSound <= 0.22) {
-        playAudio('.play_audio_dice2');
-    } else if (randomSound <= 0.34) {
-        playAudio('.play_audio_dice3');
-    } else if (randomSound <= 0.46) {
-        playAudio('.play_audio_dice4');
-    } else if (randomSound <= 0.58) {
-        playAudio('.play_audio_dice5');
-    } else if (randomSound <= 0.70) {
-        playAudio('.play_audio_dice6');
-    } else if (randomSound <= 0.82) {
-        playAudio('.play_audio_dice7');
-    }   else {
-        playAudio('.play_audio_dice8');
-    }
+    // Random 1-8
+    var randomSound = Math.ceil(Math.random() * 8); 
+    playAudio('.play_audio_dice' + randomSound);
 }
 
 function audioButtonClick() {
-        /* Function is called from new-game.js (addPlayer, deletePlayer & New Game)  */
-        playAudio('.play_audio_click1');
+    // This function is called from new-game.js (addPlayer, deletePlayer & New Game)  
+    playAudio('.play_audio_click1');
 }
 
 function audioReverseButtonClick() {
-        /* Function is called from new-game.js (addPlayer, deletePlayer & New Game)  */
-        playAudio('.play_audio_click2');
+    // This function is called from new-game.js (addPlayer, deletePlayer & New Game)  
+    playAudio('.play_audio_click2');
 }
 
 function audioWinnerFanfare() {
