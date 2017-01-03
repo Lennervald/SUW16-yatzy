@@ -55,7 +55,8 @@ function showInfoModal(title, infoMsg, size) {
 
 $("html").on('click', '#modal-yes-btn', function () {
     MODAL_CONFIRM = 2;
-    $(CONFIRM_MODAL_OBJ).text(0);
+    $(CONFIRM_MODAL_OBJ).text('–');
+	$(CONFIRM_MODAL_OBJ).addClass('crossed');
     placePoint();
     setHighlightScore(CONFIRM_MODAL_OBJ);
 });
