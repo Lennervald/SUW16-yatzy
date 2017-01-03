@@ -103,7 +103,7 @@ function audioDiceUnlock() {
 }
 
 function audioThrow() {
-    // This function is called from add-score.js
+    // This function is called from dices.js
     // Random 1-8
     var randomSound = Math.ceil(Math.random() * 8); 
     playAudio('.play_audio_dice' + randomSound);
