@@ -20,9 +20,9 @@ function includeGameArea() {
     addPlaceScore();
 }
 
-function addInfoBtnListener(){
-    $("body").on('click',".info-icon", function (){
-        showRulesModal('Regler','lg');
+function addInfoBtnListener() {
+    $("body").on('click', ".info-icon", function () {
+        showRulesModal('Regler', 'lg');
     });
 }
 
@@ -49,9 +49,9 @@ function addEventDice() {
 
     $("body").on("click", ".dice-img, .dice-lock", function () {
 
-        if (DICE_SET.throws === 3) {
-            return;
-        }
+//        if (DICE_SET.throws === 3) {
+//            return;
+//        }
 
         var me = $(this);
         if (me.hasClass('dice-lock')) {
@@ -104,6 +104,7 @@ function makeThrow() {
     }
 
     var animationReady = 0;
+    delay = 0;
 
     $(".dice-img").each(function (i) {
         inProgress = true;
@@ -113,7 +114,7 @@ function makeThrow() {
                 $(this).attr("src", "images/dice_" + DICES_ARR[i].result + ".png");
                 $(this).attr("alt", "dice_" + DICES_ARR[i].result + ".png");
                 $(this).data("diceObj", DICES_ARR[i]);
-                $(this).delay(300 * i).animate({opacity: 1}, 500, function () {
+                $(this).delay(300 * getDelay()).animate({opacity: 1}, 500, function () {
                     animationReady++;
                     if (animationReady === DICE_SET.toThrow()) {
                         //
@@ -131,6 +132,12 @@ function makeThrow() {
 
     });
 
+}
+
+var delay = 0;
+function getDelay() {
+    delay++;
+    return delay;
 }
 
 function resetAvailableScoreOptions() {
