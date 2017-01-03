@@ -130,12 +130,14 @@ function getSumOfCurrentPlayer(start, end) {
     var sum = 0;
 
     trs.each(
-            function (i, tr) {
-                var trChildren = $(tr).children('td');
-                var points = $(trChildren[currentPlayerTurn]);
-
-                sum += points.text() / 1;
-            }
+		function (i, tr) {
+			var trChildren = $(tr).children('td');
+			var points = $(trChildren[currentPlayerTurn]);
+			
+			if (!isNaN(points.text())) {
+				sum += points.text() / 1;
+			}
+		}
     );
 
     return sum;
