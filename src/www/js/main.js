@@ -121,9 +121,9 @@ function makeThrow() {
                         //
                         checkAvailableScoreOptions();
                         //
-                        if (DICE_SET.throws === 3) {
-                            DICE_SET.removeLockedIcons();
-                        }
+//                        if (DICE_SET.throws === 3) {
+//                            DICE_SET.removeLockedIcons();
+//                        }
                     }
                 });
             });
