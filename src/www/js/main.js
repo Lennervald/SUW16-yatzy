@@ -6,18 +6,26 @@ $(document).ready(function () {
 
 function go() {
     includeStartPage();
+    addInfoBtnListener();
+    addNewGameEventListener();
 }
 
 function includeGameArea() {
+    $("#win-popup").remove();
+    $("#start-page").remove();
+    //
     includeHtml("templates/gamearea.html", "body");
     addWinnerPopupTemplate();
-    addNewGameEventListener();
-    addInfoBtnListener();
     $("#throwBtn").click(makeThrow);
     addEventDice();
     gamecardSetup();
     refreshActivePlayerColumn();
     addPlaceScore();
+}
+
+function includeStartPage() {
+    $("#gamearea").remove();
+    includeHtml("templates/startpage.html", "body");
 }
 
 function addInfoBtnListener() {
@@ -26,12 +34,8 @@ function addInfoBtnListener() {
     });
 }
 
-function includeStartPage() {
-    includeHtml("templates/startpage.html", "body");
-}
-
 function addWinnerPopupTemplate() {
-    includeHtml("templates/win-popup.html", "body");
+    includeHtml("templates/win-popup.html", "#gamearea");
 }
 
 function addNewGameEventListener() {

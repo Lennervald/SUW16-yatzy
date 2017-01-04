@@ -92,6 +92,7 @@ function showConfirmModal(title, infoMsg, size, obj, type) {
 }
 
 
+
 function showRulesModal(title,size) {
     //
     var modalObj = $.parseHTML(loadTemplate("templates/modal_rules.html"));
@@ -103,14 +104,14 @@ function showRulesModal(title,size) {
         $(modalObj).find(".modal-dialog").addClass("modal-lg");
     }
     //
-    if (exists("#modal-info")) {
-        $("#modal-info").remove();
-        $("body").append(modalObj);
+    if (exists("#modal-rules")) {
+        $("#modal-rules").remove();
+        $("#gamearea").append(modalObj);
     } else {
-        $("body").append(modalObj);
+        $("#gamearea").append(modalObj);
     }
     //
-    $('#modal-info').modal();
+    $('#modal-rules').modal();
 }
 
 
