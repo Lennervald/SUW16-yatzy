@@ -78,12 +78,13 @@ function gamecardSetup() {
 
 		if (playerName.indexOf(' ') >= 0){
 			playerName = playerName[0] + playerName[1] + playerName[playerName.length-1];
-			// console.log("has space");
+		} else if (playerName.length == 2){
+			playerName = playerName[0] + playerName[1];
+		} else if (playerName.length == 1){
+			playerName = playerName[0];
 		} else {
 			playerName = playerName[0] + playerName[1] + playerName[2];
-			// console.log("no space");	
 		}
-
 		return playerName.toUpperCase();
 	}
 }
