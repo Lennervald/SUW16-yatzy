@@ -1,0 +1,144 @@
+#gamearea {
+    padding-top: 10px;
+}
+
+.game-header {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    position: relative;
+
+    .game-logo-small {
+        width: 110px;
+        display: inline-block;
+    }
+
+    .info-icon {
+        display: inline-block;
+        width: 25px;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .info-icon:hover {
+        cursor: pointer;
+    }
+
+    .new-game-button {
+        display: inline-block;
+        color: white;
+        background-color: black;
+        border-color: black;
+        margin-left: 10px;
+        font-size: 13px;
+
+        &:disabled {
+            display: none;
+        }
+    }
+
+    .start-game-button {
+        margin-top: 10px;
+    }
+
+}
+
+.whole-game-container {
+    margin: 0 auto;
+
+    .gamecard {
+        background-color: #FFF;
+        width: 100%;
+        padding: 0;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+        table,
+        td {
+            padding: 3px 4px 3px 4px;
+        }
+
+        tr:first-child {
+            font-weight: 700;
+        }
+
+        td {
+            border: 1px solid black;
+            &:first-child {
+                font-weight: 700;
+            }
+            &.crossed {
+                color: #bbb;
+            }
+        }
+
+        .unavailable-option {
+            color: #bbb;
+            font-style: italic;
+            padding: 1px;
+        }
+
+        .gamecard-shade {
+            background-color: #ddd;
+        }
+
+        .gamecard-shade-darker {
+            background-color: #ddd;
+        }
+
+        .active-player {
+            background-color: #449D44;
+            color: white;
+        }
+
+        .highlightScore {
+            /* Marker for each users latest score round */
+            background-color: #7FAD7F;
+            font-style: italic;
+            font-weight: 700;
+            -o-transition: 0.5s ease-out;
+            -ms-transition: 0.5s ease-out;
+            -moz-transition: 0.5s ease-out;
+            -webkit-transition: 0.5s ease-out;
+            transition: 0.5s ease-out;
+        }
+    }
+}
+
+
+/* =========== MEDIA QUERIES ======
+
+For extra small phone devices */
+
+@media (max-width: 340px) {
+    .wrapper {
+        margin: 0;
+        padding: 0;
+    }
+    .gamecard {
+        font-size: 11px;
+        padding-right: 10px;
+    }
+    .game-header {
+        .game-logo-small {
+            width: 90px;
+        }
+        .info-icon {
+            width: 24px;
+        }
+        .new-game-button {
+            font-size: 10px;
+        }
+    }
+    .whole-game-container {
+        margin-left: 10px;
+        width: 98%;
+    }
+}
+
+
+/* game area width for larger than xs devices */
+
+@media (min-width: 430px) {
+    .whole-game-container {
+        width: 460px;
+    }
+}

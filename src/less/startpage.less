@@ -1,0 +1,65 @@
+.game-logo {
+    padding-top: 20px;
+    width: 200px;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.player-field {
+    width: 50%;
+    display: inline-block;
+    .btn {
+        display: inline-block;
+    }
+}
+
+.form-content {
+    margin-right: 6px;
+}
+
+.form-group {
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.small-btz {
+    color: white;
+    background-color: black;
+    border-color: black;
+    margin-bottom: 10px;
+    &:disabled {
+        display: none;
+    }
+}
+
+
+/* =========== MEDIA QUERIES ======
+
+For extra small phone devices */
+
+@media (max-width: 340px) {
+    .game-logo {
+        padding-top: 0;
+        width: 170px;
+        margin-bottom: 20px;
+    }
+    .player-field {
+        width: 40%;
+        display: inline-block;
+        .btn {
+            display: inline-block;
+        }
+    }
+    .form-content {
+        margin-right: 6px;
+    }
+    .small-btz {
+        color: white;
+        background-color: black;
+        border-color: black;
+        margin-bottom: 2px;
+        &:disabled {
+            display: none;
+        }
+    }
+}

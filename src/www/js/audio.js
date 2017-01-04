@@ -41,7 +41,7 @@ $(document).ready(function() {
         var glyphOff = 'glyphicon glyphicon-volume-off';
 
         game.prepend(
-            '<div class="audio-button-container"><div class="sound-symbol"><span class="' + glyphOn + '" aria-hidden="true"></span></div></div>'
+            '<div class="whole-game-container"><div class="audio-button-container"><div class="sound-symbol"><span class="' + glyphOn + '" aria-hidden="true"></span></div></div></div>'
         );
 
         // Auto Playing game music 

@@ -1,0 +1,72 @@
+.dices-container-main {
+    width: 100%;
+    float: right;
+    margin-right: 10px;
+
+    .dice-img {
+        width: 72px;
+        height: 72px;
+        display: block;
+        margin-bottom: 8px;
+        background-color: #fff;
+        color: #fff;
+        opacity: 0.7;
+    }
+
+    .dice-img:hover {
+        -webkit-transition: all ease-in-out 300ms;
+        transition: all ease-in-out 300ms;
+
+    }
+
+    .dice-locked {
+        -ms-transform: rotate(7deg); /* IE 9 */
+        -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+        transform: rotate(15deg);
+    }
+
+    .throw-btz {
+        margin-top: 12px;
+        width: 72px;
+        height: 72px;
+        border-radius: 100%;
+        border: 2px solid white; 
+        box-shadow: 4px 4px 4px #999;
+        font-size: 15px;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+        line-height: 50px; /*or you could use 4em*/
+    }
+
+    .dice-lock {
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+
+    .dice-container {
+        position: relative;
+    }
+
+}
+
+
+/* =========== MEDIA QUERIES ======
+
+For extra small phone devices */
+
+@media (max-width: 340px) {
+    .dices-container-main {
+        .dice-img {
+            width: 58px;
+            height: 58px;
+        }
+        .throw-btz {
+            width: 58px;
+            height: 58px;
+            font-size: 10px;
+            line-height: 38px;
+        }
+    }
+}
