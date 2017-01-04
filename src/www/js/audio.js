@@ -19,6 +19,7 @@ $(document).ready(function() {
             play_audio_dice6: "/audio/roll6.mp3",
             play_audio_dice7: "/audio/roll7.mp3",
             play_audio_dice8: "/audio/roll8.mp3",
+            play_audio_yatzeee: "/audio/yatzeee.mp3",
             play_audio_winner_fanfare: "/audio/winner_fanfare.mp3"
         };
 
@@ -122,4 +123,9 @@ function audioReverseButtonClick() {
 function audioWinnerFanfare() {
     // This function is called from add-score.js
     playAudio('.play_audio_winner_fanfare');
+}
+
+function audioYatzeee() {
+    // This function is called from add-score.js
+    playAudio('.play_audio_yatzeee');
 }

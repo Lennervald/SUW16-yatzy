@@ -19,6 +19,9 @@ function addPlaceScore() {
 
             // Check which rule has the same index as our TR
             var x = 1;
+            // If a player scores Yatzy
+            var yatzyScore = 17;
+
             for (var rule in checkScore) {
                 if (trIndex === x) {
 
@@ -29,7 +32,11 @@ function addPlaceScore() {
                         return;
                     }
 
+                } else if (trIndex === yatzyScore) {
+                    // console.log("daaaa");
+                    audioYatzeee();
                 }
+
                 x++;
             }
 
