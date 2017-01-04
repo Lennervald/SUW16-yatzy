@@ -40,18 +40,35 @@ function updatePlayersAndScore(playersArr, highestScore) {
     }
 }
 
+
+
 // changes column bg color for active player
 function refreshActivePlayerColumn() {
 
-    var tds = $('.gamecard tr:first-child td');
+    //get all table rows in table
+    var trs = $('.gamecard tr');
+    
+
+    $(trs).each(function(){
+        $(this).find('td.active-column').removeClass('active-column');
+        $(this).find('td').eq(currentPlayerTurn).addClass('active-column');
+    });
+
+
+    
+
+    // // old code that only selcts first rows TD
+    // var tds = $('.gamecard tr:first-child td');
     // console.log(tds);
 
-    for (var i = 0; i < tds.length; i++) {
-        // console.log('i = ', i, tds[i]);
-        if (i % (players.length + 1) == currentPlayerTurn) {
-            $(tds[i]).addClass('active-player');
-        } else {
-            $(tds[i]).removeClass('active-player');
-        }
-    }
+    // for (var i = 0; i < tds.length; i++) {
+    //     // console.log('i = ', i, tds[i]);
+    //     if (i % (players.length + 1) == currentPlayerTurn) {
+    //         $(tds[i]).addClass('active-player');
+    //     } else {
+    //         $(tds[i]).removeClass('active-player');
+    //     }
+    // }
 }
+
+
