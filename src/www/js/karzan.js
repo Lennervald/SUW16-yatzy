@@ -21,7 +21,7 @@ $(function(){
 function addPlayer() {
 
 	if (players.length < 4) {
-		var playerName = 'Player ' + (players.length + 1);
+		var playerName = 'Spelare ' + (players.length + 1);
 
 	$('.player-list').append(
 		'<form class="form-inline">' + 
