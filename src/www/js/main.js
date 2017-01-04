@@ -161,7 +161,7 @@ function checkAvailableScoreOptions() {
     for (var rule in checkScore) {
         if (checkScore[rule]() === 0) {
             $(rows[index]).addClass('unavailable-option');
-            $(rows[0]).addClass('unavailable-option');
+            // $(rows[0]).addClass('unavailable-option');
         } else if ($($(rows[index]).children('td')[currentPlayerTurn]).text() !== '') {
             $(rows[index]).addClass('unavailable-option');
         }
