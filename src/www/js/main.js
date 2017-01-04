@@ -49,10 +49,6 @@ function addEventDice() {
 
     $("body").on("click", ".dice-img, .dice-lock", function () {
 
-//        if (DICE_SET.throws === 3) {
-//            return;
-//        }
-
         var me = $(this);
         if (me.hasClass('dice-lock')) {
             // change me from the dice-lock to the dice img
@@ -60,6 +56,7 @@ function addEventDice() {
         }
 
         var diceObj = me.data("diceObj");
+//        console.log("dice: " + diceObj);
 
         // Locking only works after first
         if (DICE_SET.throws > 0) {
@@ -85,12 +82,18 @@ function toggleLockedIcon(diceElem, diceObj) {
 var inProgress = false;
 
 function makeThrow() {
-    if (inProgress || DICE_SET.throws === 3) {
+    if (inProgress) {
+//        console.log("return due to: inProgress");
+        return;
+    }
+
+    if (DICE_SET.throws === 3) {
+//        console.log("return due to: throws = 3");
         return;
     }
 
     if (DICE_SET.allLocked()) {
-        alert("All locked");
+        showInfoModal("OBS!", "Alla tärningar låsta, kan inte kasta");
         return;
     }
 
@@ -102,29 +105,30 @@ function makeThrow() {
         $("#throwBtn").removeClass("btn-success");
         $("#throwBtn").addClass("btn-danger");
     }
-
+    //
+    var toThrow = DICE_SET.toThrow();
     var animationReady = 0;
     delay = 0;
-
+    //
     $(".dice-img").each(function (i) {
+        //
         inProgress = true;
-
+        //
         if ($(this).hasClass("dice-locked") === false) { // dice-unlocked
             $(this).animate({opacity: 0}, 200, function () {
                 $(this).attr("src", "images/dice_" + DICES_ARR[i].result + ".png");
                 $(this).attr("alt", "dice_" + DICES_ARR[i].result + ".png");
                 $(this).data("diceObj", DICES_ARR[i]);
                 $(this).delay(300 * getDelay()).animate({opacity: 1}, 500, function () {
+                    //
                     animationReady++;
-                    if (animationReady === DICE_SET.toThrow()) {
+                    //
+                    if (animationReady === toThrow) {
                         //
                         inProgress = false;
                         //
                         checkAvailableScoreOptions();
                         //
-//                        if (DICE_SET.throws === 3) {
-//                            DICE_SET.removeLockedIcons();
-//                        }
                     }
                 });
             });
@@ -136,8 +140,7 @@ function makeThrow() {
 
 var delay = 0;
 function getDelay() {
-    delay++;
-    return delay;
+    return delay++;
 }
 
 function resetAvailableScoreOptions() {
